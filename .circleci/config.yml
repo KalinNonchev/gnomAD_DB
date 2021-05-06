@@ -2,15 +2,15 @@ version: 2.1
 
 
 variables:
-  update_conda: &update_conda
+  update_conda: &update_mamba
     run:
-      name: Update conda
-      command: conda update --yes conda
-  create_env: &create_env
+      name: Update mamba
+      command: mamba update --yes mamba
+  create_env: &create_mamba
     run:
       name: create env
       command: |
-        conda env create -f environment.yaml
+        mamba env create -f environment.yaml
         source activate gnomad_db
         python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
 
@@ -25,10 +25,10 @@ workflows:
 jobs:
   build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     docker:
-      - image: continuumio/miniconda3:4.7.10
+      - image: mambaorg/micromamba:0.11.3
     steps:
       - checkout
-      - *update_conda
+      - *update_mamba
       - *create_env
       - run:
           name: Run tests
