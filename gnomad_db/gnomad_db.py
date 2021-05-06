@@ -71,30 +71,23 @@ class gnomAD_DB:
                                      len(x.alt) == (x.alt.count("A") + x.alt.count("T") + x.alt.count("C") + x.alt.count("G"))
                                                     ,axis=1)]
         
-        rows = [self._pack_var_args(var) for _, var in var_df.iterrows()]
+        rows = [tuple(x) for x in var_df.to_numpy()]
         
         sql_input = f"""
-                    BEGIN TRANSACTION;
                     INSERT OR REPLACE INTO gnomad_db({", ".join(self.columns)})
-                    VALUES 
-                    {",".join(rows)};
-                    COMMIT;
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
                     """
         with self.open_dbconn() as conn:
             c = conn.cursor()
-            c.executescript(sql_input)
+            c.executemany(sql_input, rows)
     
     
     def _sanitize_variants(self, var_df: pd.DataFrame) -> pd.DataFrame:
         var_df["chrom"] = var_df.chrom.apply(lambda x: x.replace("chr", ""))
         return var_df
     
-    def _pack_var_args(self, var: pd.Series, variant_keys_only=False) -> str:
-        if variant_keys_only:
-            return f"'{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}'"
-        else:
-            return f"('{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}', {var.AF}, \
-        {var.AF_afr}, {var.AF_eas}, {var.AF_fin}, {var.AF_nfe}, {var.AF_asj}, {var.AF_oth}, {var.AF_popmax})"
+    def _pack_var_args(self, var: pd.Series) -> str:
+        return f"'{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}'"
     
     
     def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
@@ -103,7 +96,7 @@ class gnomAD_DB:
         
         var_df = self._sanitize_variants(var_df)
         
-        rows = [f"SELECT {self._pack_var_args(var, variant_keys_only=True)}" for _, var in var_df.iterrows()]
+        rows = [f"SELECT {self._pack_var_args(var)}" for _, var in var_df.iterrows()]
         
         rows = " UNION ALL ".join(rows)
         
