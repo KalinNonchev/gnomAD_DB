@@ -11,7 +11,7 @@ variables:
       name: create env
       command: |
         conda env create -f environment.yaml
-        conda activate gnomad_db
+        source activate gnomad_db
         python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
@@ -33,5 +33,5 @@ jobs:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: |
-            conda activate gnomad_db
+            source activate gnomad_db
             snakemake --cores 1
