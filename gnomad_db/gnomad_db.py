@@ -99,7 +99,7 @@ class gnomAD_DB:
         {var.AF_afr}, {var.AF_eas}, {var.AF_fin}, {var.AF_nfe}, {var.AF_asj}, {var.AF_oth}, {var.AF_popmax})"
     
     
-    def get_maf(self, var: pd.Series, score_id: str) -> float:
+    def get_maf(self, var: pd.Series, score_id: str="AF") -> float:
         
         sql_request = f"""
         SELECT {score_id} from gnomad_db
@@ -111,7 +111,7 @@ class gnomAD_DB:
             assert len(res) <= 1
             return  res.flatten()
     
-    def get_maf_from_df(self, var_df: pd.DataFrame, score_id: str) -> pd.Series:
+    def get_maf_from_df(self, var_df: pd.DataFrame, score_id: str="AF") -> pd.Series:
         # TODO: Doesn't work when all variants are missing!
         # TODO: join between local table and sql table! speed-up
         var_df = self._sanitize_variants(var_df)
@@ -122,7 +122,7 @@ class gnomAD_DB:
         return pd.DataFrame(list(res), columns=columns)
     
     
-    def get_maf_from_str(self, var, score_id) -> float:
+    def get_maf_from_str(self, var: str, score_id: float="AF") -> float:
         # variant in form chrom:pos:ref>alt
         
         var = var.split(":")
