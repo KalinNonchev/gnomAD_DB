@@ -6,7 +6,7 @@ variables:
     run:
       name: Update mamba
       command: mamba update --yes mamba
-  create_env: &create_mamba
+  create_env: &create_env
     run:
       name: create env
       command: |
