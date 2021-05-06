@@ -2,10 +2,6 @@ version: 2.1
 
 
 variables:
-  update_mamba: &update_mamba
-    run:
-      name: Update mamba
-      command: mamba update --yes mamba
   create_env: &create_env
     run:
       name: create env
@@ -28,7 +24,6 @@ jobs:
       - image: mambaorg/micromamba:0.11.3
     steps:
       - checkout
-      - *update_mamba
       - *create_env
       - run:
           name: Run tests
