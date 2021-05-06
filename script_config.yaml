@@ -1,0 +1,5 @@
+database_location: "test_dir"
+gnomad_vcf_location: "data"
+tables_location: "test_dir"
+script_locations: "test_dir"
+KERNEL: "gnomad_db"

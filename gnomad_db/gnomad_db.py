@@ -77,11 +77,12 @@ class gnomAD_DB:
     
     
     def _sanitize_variants(self, var_df: pd.DataFrame) -> pd.DataFrame:
+        var_df["chrom"] = var_df["chrom"].astype(str)
         var_df["chrom"] = var_df.chrom.apply(lambda x: x.replace("chr", ""))
         return var_df
     
     def _pack_var_args(self, var: pd.Series) -> str:
-        return f"'{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}'"
+        return (var.chrom, var.pos, var.ref, var.alt)
     
     
     def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
@@ -90,22 +91,36 @@ class gnomAD_DB:
         
         var_df = self._sanitize_variants(var_df)
         
-        rows = [f"SELECT {self._pack_var_args(var)}" for _, var in var_df.iterrows()]
+        rows = [self._pack_var_args(var) for _, var in var_df.iterrows()]
         
-        rows = " UNION ALL ".join(rows)
         
         
         query = "tt.chrom, tt.pos, tt.ref, tt.alt, " + ", ".join(self.columns[4:]) if query == '*' else query
         
+        sql_create_temp_table = f"""
+        CREATE TEMPORARY TABLE temp_table(
+            chrom TEXT,
+            pos INTEGER,
+            ref TEXT,
+            alt TEXT
+            );
+        """
+        
+        sql_insert = """
+        INSERT INTO temp_table (chrom, pos, ref, alt)
+        VALUES (?,?,?,?);
+        """
+        
         sql_query = f"""
-        WITH temp_table(chrom, pos, ref, alt) AS 
-        ({rows})
         SELECT {query} FROM temp_table as tt
         LEFT JOIN gnomad_db AS gdb 
         ON tt.chrom = gdb.chrom AND tt.pos = gdb.pos AND tt.ref = gdb.ref AND tt.alt = gdb.alt;
         """
         
         with self.open_dbconn() as conn:
+            c = conn.cursor()
+            c.executescript(sql_create_temp_table)
+            c.executemany(sql_insert, rows)
             return pd.read_sql_query(sql_query, conn)
     
     
