@@ -93,7 +93,7 @@ class gnomAD_DB:
     
     def _pack_var_args(self, var: pd.Series, variant_keys_only=False) -> str:
         if variant_keys_only:
-            return f"('{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}')"
+            return f"'{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}'"
         else:
             return f"('{var.chrom}', {var.pos}, '{var.ref}', '{var.alt}', {var.AF}, \
         {var.AF_afr}, {var.AF_eas}, {var.AF_fin}, {var.AF_nfe}, {var.AF_asj}, {var.AF_oth}, {var.AF_popmax})"
@@ -112,14 +112,25 @@ class gnomAD_DB:
             return  res.flatten()
     
     def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
-        # TODO: Doesn't work when all variants are missing!
-        # TODO: join between local table and sql table! speed-up
+        if var_df.empty:
+            return var_df
+        
         var_df = self._sanitize_variants(var_df)
-        res = var_df.progress_apply(lambda x: self.get_maf(x, query), axis=1)
         
-        columns = self.columns if "*" in query else query.replace(" ", "").split(",")
+        rows = [f"SELECT {self._pack_var_args(var, variant_keys_only=True)}" for _, var in var_df.iterrows()]
         
-        return pd.DataFrame(list(res), columns=columns)
+        rows = " UNION ALL ".join(rows)
+        
+        sql_query = f"""
+        WITH temp_table(chrom, pos, ref, alt) AS 
+        ({rows})
+        SELECT {query} FROM temp_table as tt
+        LEFT JOIN gnomad_db AS gdb 
+        ON tt.chrom = gdb.chrom AND tt.pos = gdb.pos AND tt.ref = gdb.ref AND tt.alt = gdb.alt;
+        """
+        
+        with self.open_dbconn() as conn:
+            return pd.read_sql_query(sql_query, conn)
     
     
     def get_maf_from_str(self, var: str, query: float="AF") -> float:
