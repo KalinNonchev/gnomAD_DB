@@ -99,10 +99,10 @@ class gnomAD_DB:
         {var.AF_afr}, {var.AF_eas}, {var.AF_fin}, {var.AF_nfe}, {var.AF_asj}, {var.AF_oth}, {var.AF_popmax})"
     
     
-    def get_maf(self, var: pd.Series, score_id: str="AF") -> float:
+    def get_maf(self, var: pd.Series, query: str="AF") -> float:
         
         sql_request = f"""
-        SELECT {score_id} from gnomad_db
+        SELECT {query} from gnomad_db
         WHERE chrom = '{var.chrom}' AND pos = {var.pos} AND ref = '{var.ref}' AND alt = '{var.alt}';
         """
         
@@ -111,18 +111,18 @@ class gnomAD_DB:
             assert len(res) <= 1
             return  res.flatten()
     
-    def get_maf_from_df(self, var_df: pd.DataFrame, score_id: str="AF") -> pd.Series:
+    def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
         # TODO: Doesn't work when all variants are missing!
         # TODO: join between local table and sql table! speed-up
         var_df = self._sanitize_variants(var_df)
         res = var_df.progress_apply(lambda x: self.get_maf(x, score_id), axis=1)
         
-        columns = self.columns if "*" in score_id else score_id.replace(" ", "").split(",")
+        columns = self.columns if "*" in query else query.replace(" ", "").split(",")
         
         return pd.DataFrame(list(res), columns=columns)
     
     
-    def get_maf_from_str(self, var: str, score_id: float="AF") -> float:
+    def get_maf_from_str(self, var: str, query: float="AF") -> float:
         # variant in form chrom:pos:ref>alt
         
         var = var.split(":")
@@ -133,8 +133,8 @@ class gnomAD_DB:
         
         var = pd.Series([chrom, pos, ref, alt], index=["chrom", "pos", "ref", "alt"])
         
-        columns = self.columns if "*" in score_id else score_id.replace(" ", "").split(",")
-        res = pd.Series(self.get_maf(var, score_id), index=columns)
+        columns = self.columns if "*" in query else query.replace(" ", "").split(",")
+        res = pd.Series(self.get_maf(var, query), index=columns)
         
         return res
             
