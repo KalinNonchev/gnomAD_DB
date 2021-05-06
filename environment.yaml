@@ -20,3 +20,4 @@ dependencies:
       - snakemake
       - pysqlite3
       - joblib
+      - nbformat>=5.1
