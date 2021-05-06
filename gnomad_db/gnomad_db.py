@@ -115,7 +115,7 @@ class gnomAD_DB:
         # TODO: Doesn't work when all variants are missing!
         # TODO: join between local table and sql table! speed-up
         var_df = self._sanitize_variants(var_df)
-        res = var_df.progress_apply(lambda x: self.get_maf(x, score_id), axis=1)
+        res = var_df.progress_apply(lambda x: self.get_maf(x, query), axis=1)
         
         columns = self.columns if "*" in query else query.replace(" ", "").split(",")
         
