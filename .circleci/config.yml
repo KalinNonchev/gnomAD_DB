@@ -2,7 +2,7 @@ version: 2.1
 
 
 variables:
-  update_conda: &update_mamba
+  update_mamba: &update_mamba
     run:
       name: Update mamba
       command: mamba update --yes mamba
