@@ -40,15 +40,9 @@ class gnomAD_DB:
             PRIMARY KEY (chrom, pos, ref, alt));
         """
         
-        sql_index = """
-        CREATE INDEX gnomad_db_chrom_pos_index 
-        ON gnomad_db(chrom, pos);
-        """
-        
         with self.open_dbconn() as conn:
             c = conn.cursor()
             c.executescript(sql_create)
-            c.executescript(sql_index)    
     
     def insert_variants(self, var_df: pd.DataFrame):
         assert np.array_equal(
