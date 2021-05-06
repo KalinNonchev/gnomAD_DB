@@ -10,7 +10,7 @@ variables:
     run:
       name: create env
       command: |
-        conda env create -f environment.yml
+        conda env create -f environment.yaml
         source activate gnomad_db
         python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
 
