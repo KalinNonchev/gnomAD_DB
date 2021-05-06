@@ -58,7 +58,7 @@ class gnomAD_DB:
             np.array(
                 self.columns
             )
-        ), "Columns are missing. The dataframe should contain: " + ", ".join(columns)
+        ), "Columns are missing. The dataframe should contain: " + ", ".join(self.columns)
         
         
         
@@ -135,5 +135,6 @@ class gnomAD_DB:
         
         columns = self.columns if "*" in score_id else score_id.replace(" ", "").split(",")
         res = pd.Series(self.get_maf(var, score_id), index=columns)
+        
         return res
             
