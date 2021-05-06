@@ -53,6 +53,6 @@ rule create_GettingStartedNB:
     output:
         notebook = script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
     message:
-        "Running insertVariants notebook..."
+        "Running GettingStartedwithGnomAD_DB notebook.... Take a look here!"
     shell:
         "papermill {input.notebook} {output.notebook} -p database_location {database_location} -k {KERNEL}"
