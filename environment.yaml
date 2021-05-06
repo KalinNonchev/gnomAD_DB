@@ -13,10 +13,11 @@ dependencies:
   - pyyaml
   - tqdm
   - jupyter
-  - papermill>=2.2
+  - papermill>=2.3.2
   - bcftools
   
   - pip:
       - snakemake
       - pysqlite3
       - joblib
+      - nbformat>=5.1

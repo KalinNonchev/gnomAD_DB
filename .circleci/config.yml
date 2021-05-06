@@ -1,0 +1,37 @@
+version: 2.1
+
+
+variables:
+  update_conda: &update_conda
+    run:
+      name: Update conda
+      command: conda update --yes conda
+  create_env: &create_env
+    run:
+      name: create env
+      command: |
+        conda env create -f environment.yaml
+        source activate gnomad_db
+        python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
+workflows:
+  sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run. 
+    # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
+    jobs:
+      - build-and-test
+
+
+jobs:
+  build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+    docker:
+      - image: continuumio/miniconda3:4.7.10
+    steps:
+      - checkout
+      - *update_conda
+      - *create_env
+      - run:
+          name: Run tests
+          # This assumes pytest is installed via the install-package step above
+          command: |
+            source activate gnomad_db
+            snakemake --cores 1
