@@ -121,6 +121,9 @@ class gnomAD_DB:
         
         rows = " UNION ALL ".join(rows)
         
+        
+        query = "tt.chrom, tt.pos, tt.ref, tt.alt, " + ", ".join(self.columns[4:]) if query == '*' else query
+        
         sql_query = f"""
         WITH temp_table(chrom, pos, ref, alt) AS 
         ({rows})
