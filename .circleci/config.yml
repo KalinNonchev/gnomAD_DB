@@ -35,4 +35,4 @@ jobs:
           command: |
             source activate gnomad_db
             snakemake --cores 1
-	    python -m pytest test_dir/
+	    python -m pytest test_dir
