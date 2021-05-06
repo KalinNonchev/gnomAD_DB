@@ -2,8 +2,6 @@ import sqlite3
 import os
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
-tqdm.pandas()
 
 class gnomAD_DB:
     
@@ -99,18 +97,6 @@ class gnomAD_DB:
         {var.AF_afr}, {var.AF_eas}, {var.AF_fin}, {var.AF_nfe}, {var.AF_asj}, {var.AF_oth}, {var.AF_popmax})"
     
     
-    def get_maf(self, var: pd.Series, query: str="AF") -> float:
-        
-        sql_request = f"""
-        SELECT {query} from gnomad_db
-        WHERE chrom = '{var.chrom}' AND pos = {var.pos} AND ref = '{var.ref}' AND alt = '{var.alt}';
-        """
-        
-        with self.open_dbconn() as conn:
-            res = pd.read_sql_query(sql_request, conn).values
-            assert len(res) <= 1
-            return  res.flatten()
-    
     def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
         if var_df.empty:
             return var_df
@@ -145,10 +131,10 @@ class gnomAD_DB:
         ref = var[2].split(">")[0]
         alt = var[2].split(">")[1]
         
-        var = pd.Series([chrom, pos, ref, alt], index=["chrom", "pos", "ref", "alt"])
+        var_df = pd.DataFrame({
+                            "chrom": [chrom], 
+                            "pos": [pos], 
+                            "ref": [ref], 
+                            "alt": [alt]})
         
-        columns = self.columns if "*" in query else query.replace(" ", "").split(",")
-        res = pd.Series(self.get_maf(var, query), index=columns)
-        
-        return res
-            
+        return self.get_maf_from_df(var_df, query).squeeze()
