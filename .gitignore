@@ -1,0 +1,4 @@
+gnomad_db/.*
+gnomad_db/__*
+
+scripts/.*
