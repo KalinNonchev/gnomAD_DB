@@ -67,7 +67,7 @@ db.get_maf_from_df(var_df, "AF").head() # only one columns
 db.get_maf_from_df(var_df, "AF, AF_popmax").head() # multiple columns
 
 # %%
-db.get_maf_from_df(var_df, "*").head() # everything
+db.get_maf_from_df(var_df, "*") # everything
 
 # %%
 dummy_var_df = pd.DataFrame({
@@ -78,10 +78,10 @@ dummy_var_df = pd.DataFrame({
 dummy_var_df
 
 # %%
-db.get_maf_from_df(dummy_var_df, "*").head()
+db.get_maf_from_df(dummy_var_df, "AF").head().to_dict()
 
 # %% [markdown]
-# ## You can pass also a single string as a variant
+# ## You can pass a single string as a variant
 
 # %%
 db.get_maf_from_str("21:9825790:C>T", "AF")
@@ -89,4 +89,8 @@ db.get_maf_from_str("21:9825790:C>T", "AF")
 # %%
 db.get_maf_from_str("21:9825790:C>T", "*")
 
+# %% [markdown]
+# ## You can look for the MAF scores in an interval
+
 # %%
+db.get_mafs_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="*")
