@@ -111,4 +111,42 @@ def test_query_variants_x320_000_rows(database):
     
     assert len(observed) == len(dummy_var_df)
 
+def test_pack_from_str(database):
+    
+    expected = ('21', 9825790, 'C', 'T')
+    
+    observed = database._pack_from_str("21:9825790:C>T")
+    
+    assert expected == observed
 
+def test_query_columns(database):
+    
+    expected = 'chrom, pos, ref, alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
+    observed = database._query_columns("*")
+    
+    expected = 'tt.chrom, tt.pos, tt.ref, tt.alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
+    observed = database._query_columns("*", prefix="tt")
+    
+    
+    
+    
+
+
+def test_get_interval_from_str(database):
+    
+    expected = pd.DataFrame({'chrom': {0: '21', 1: '21', 2: '21', 3: '21', 4: '21'},
+                             'pos': {0: 9825790, 1: 9825790, 2: 9825790, 3: 9825791, 4: 9825793},
+                             'ref': {0: 'C', 1: 'C', 2: 'C', 3: 'T', 4: 'C'},
+                             'alt': {0: 'CT', 1: 'G', 2: 'T', 3: 'TGCG', 4: 'T'},
+                             'AF': {0: 0.00097561, 1: 0.000731707, 2: 0.000243902, 3: 0.0, 4: 0.000804182},
+                             'AF_afr': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
+                             'AF_eas': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
+                             'AF_fin': {0: 0.0, 1: 0.0, 2: 0.000959693, 3: 0.0, 4: 0.0},
+                             'AF_nfe': {0: 0.00145879, 1: 0.00109409, 2: 0.0, 3: 0.0, 4: 0.00126263},
+                             'AF_asj': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
+                             'AF_oth': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
+                             'AF_popmax': {0: 0.00145879, 1: 0.00109409, 2: np.NaN, 3: np.NaN, 4: 0.00126263}})
+    
+    observed = database.get_mafs_for_interval(chrom=21, interval_start=9825787, interval_end=9825793, query="*")
+    
+    assert expected.equals(observed)

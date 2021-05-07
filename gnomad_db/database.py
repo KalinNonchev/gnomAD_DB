@@ -96,7 +96,7 @@ class gnomAD_DB:
         
         
         
-        query = "tt.chrom, tt.pos, tt.ref, tt.alt, " + ", ".join(self.columns[4:]) if query == '*' else query
+        query = self._query_columns(query, prefix="tt")
         
         sql_create_temp_table = f"""
         CREATE TEMPORARY TABLE temp_table(
@@ -124,20 +124,50 @@ class gnomAD_DB:
             c.executemany(sql_insert, rows)
             return pd.read_sql_query(sql_query, conn)
     
+    def _query_columns(self, query: str, prefix: str=None) -> str:
+        if prefix is None:
+            query = ", ".join(self.columns) if query == '*' else query
+        else:
+            query = f"{prefix}.chrom, {prefix}.pos, {prefix}.ref, {prefix}.alt, " + ", ".join(self.columns[4:]) if query == '*' else query
+        return query
     
-    def get_maf_from_str(self, var: str, query: float="AF") -> float:
-        # variant in form chrom:pos:ref>alt
-        
+    def _pack_from_str(self, var: str) -> str:
         var = var.split(":")
         chrom = var[0].replace("chr", "")
-        pos = var[1]
+        pos = int(var[1])
         ref = var[2].split(">")[0]
         alt = var[2].split(">")[1]
+        return chrom, pos, ref, alt
         
-        var_df = pd.DataFrame({
-                            "chrom": [chrom], 
-                            "pos": [pos], 
-                            "ref": [ref], 
-                            "alt": [alt]})
+    
+    def query_direct(self, sql_query: str):
+         with self.open_dbconn() as conn:
+            c = conn.cursor()
+            return pd.read_sql_query(sql_query, conn)
+    
+    def get_mafs_for_interval(self, chrom: str, interval_start: int, interval_end: int, query: str="AF") -> pd.DataFrame:
+                
+        query = self._query_columns(query)
         
-        return self.get_maf_from_df(var_df, query).squeeze()
+        sql_query = f"""
+        SELECT {query} FROM gnomad_db
+        WHERE chrom = '{chrom}' AND pos BETWEEN {interval_start} AND {interval_end}
+        """
+        
+        return self.query_direct(sql_query)
+        
+    
+    
+    def get_maf_from_str(self, var: str, query: str="AF") -> float:
+        # variant in form chrom:pos:ref>alt
+        
+        chrom, pos, ref, alt = self._pack_from_str(var)
+        
+        query = self._query_columns(query)
+        
+        sql_query = f"""
+        SELECT {query} FROM gnomad_db
+        where chrom = '{chrom}' AND pos = {pos} AND ref = '{ref}' AND alt = '{alt}';
+        """
+        
+        return self.query_direct(sql_query).squeeze()
