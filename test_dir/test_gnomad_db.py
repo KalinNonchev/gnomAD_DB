@@ -96,7 +96,7 @@ def test_insert_variants(database):
     assert dummy_var_df[["pos", "ref", "alt"]].equals(observed[["pos", "ref", "alt"]])
 
 
-def test_query_variants_x320_000_columns(database):
+def test_query_variants_x320_000_rows(database):
     
     dummy_var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
     dummy_var_df = dummy_var_df.replace(".", np.NaN)

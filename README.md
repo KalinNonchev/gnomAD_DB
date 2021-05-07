@@ -7,7 +7,7 @@ It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe",
 
 It works for all currently available gnomAD releases. 
 
-## 1. Data preprocessing and SQL tabase creation
+## 1. Data preprocessing and SQL database creation
 
 Start by downloading the vcf files from gnomAD in a single directory:
 
@@ -81,7 +81,4 @@ db.get_maf_from_str("21:9825790:C>T", "AF")
 
 ```
 
-For more infromation, look into GettingStartedwithGnomAD_DB.ipynb notebook!
-
-
-
+For more information on how to use the package, look into GettingStartedwithGnomAD_DB.ipynb notebook!
