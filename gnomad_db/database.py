@@ -77,6 +77,7 @@ class gnomAD_DB:
     
     
     def _sanitize_variants(self, var_df: pd.DataFrame) -> pd.DataFrame:
+        var_df = var_df.replace(".", np.NaN)
         var_df["chrom"] = var_df["chrom"].astype(str)
         var_df["chrom"] = var_df.chrom.apply(lambda x: x.replace("chr", ""))
         return var_df

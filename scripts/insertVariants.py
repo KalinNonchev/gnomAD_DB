@@ -14,7 +14,7 @@
 # ---
 
 # %%
-from gnomad_db.gnomad_db import gnomAD_DB
+from gnomad_db.database import gnomAD_DB
 import numpy as np
 import pandas as pd
 import gzip

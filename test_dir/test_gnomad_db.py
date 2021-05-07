@@ -1,4 +1,4 @@
-from gnomad_db.gnomad_db import gnomAD_DB
+from gnomad_db.database import gnomAD_DB
 import pandas as pd
 import numpy as np
 import pytest
@@ -80,6 +80,35 @@ def test_get_maf_from_str(database):
     observed = database.get_maf_from_str(dummy_str, "AF")
     
     assert round(expected, 5) == round(observed, 5) 
-  
+
+    
+    
+    
+def test_insert_variants(database):
+    
+    dummy_var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
+    dummy_var_df = dummy_var_df.replace(".", np.NaN)
+    
+    database.insert_variants(dummy_var_df)
+    
+    observed = database.get_maf_from_df(dummy_var_df, "*")
+    
+    assert dummy_var_df[["pos", "ref", "alt"]].equals(observed[["pos", "ref", "alt"]])
+
+
+def test_query_variants_x320_000_columns(database):
+    
+    dummy_var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
+    dummy_var_df = dummy_var_df.replace(".", np.NaN)
+    
+    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    
+    observed = database.get_maf_from_df(dummy_var_df, "AF")
+    
+    assert len(observed) == len(dummy_var_df)
 
 
