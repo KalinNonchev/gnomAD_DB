@@ -47,6 +47,7 @@ jobs:
           name: Test pip installation
           # This assumes pytest is installed via the install-package step above
           command: |
+            pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
             python setup.py install --force
             python -m pytest test_dir/
