@@ -15,7 +15,7 @@ def database():
     
     var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=db.columns, index_col=False)
     
-    db.insert_variants(var_df)
+    database.insert_variants(var_df)
     
     return database
 
