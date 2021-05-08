@@ -78,7 +78,7 @@ dummy_var_df = pd.DataFrame({
 dummy_var_df
 
 # %%
-db.get_maf_from_df(dummy_var_df, "AF").head().to_dict()
+db.get_maf_from_df(dummy_var_df, "AF")
 
 # %% [markdown]
 # ## You can pass a single string as a variant
