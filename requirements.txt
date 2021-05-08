@@ -1,4 +1,4 @@
 gnomad_db
 pandas
 numpy
-yaml
+pyyaml
