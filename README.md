@@ -42,7 +42,7 @@ Congratulations, your database is set up! Now it is time to learn how to use it.
 
 First, you can install the package in the gnomad_db env or in the one which you are going to use for your downstream analysis
 ```bash
-python setup.py install
+pip install gnomad_db
 ```
 
 You can use the package like
