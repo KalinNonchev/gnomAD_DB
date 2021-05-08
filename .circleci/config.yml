@@ -19,6 +19,7 @@ workflows:
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
     jobs:
       - build-and-test
+      - test_pip_install
 
 
 jobs:
@@ -37,3 +38,15 @@ jobs:
             snakemake --cores 1
             python -m pytest test_dir/
             python setup.py install
+  test_pip_install:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    steps:
+      - checkout
+      - run:
+          name: Test pip installation
+          # This assumes pytest is installed via the install-package step above
+          command: |
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            python setup.py install --force
+            python -m pytest test_dir/
