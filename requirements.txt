@@ -1,3 +1,4 @@
 gnomad_db
-pandas>=1.2
-numpy>=1.2
+pandas
+numpy
+yaml
