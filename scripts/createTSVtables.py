@@ -23,7 +23,7 @@ import os
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=["parameters"]
 gnomad_vcf_location = "test"
-tables_location: "test"
+tables_location = "test"
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=[]
 # get gnomAD files
