@@ -2,10 +2,16 @@ import sqlite3
 import os
 import numpy as np
 import pandas as pd
+import multiprocessing
+from joblib import Parallel, delayed
+
 
 class gnomAD_DB:
     
-    def __init__(self, genodb_path):
+    def __init__(self, genodb_path, parallel=True):
+        
+        self.cpu_count = int(multiprocessing.cpu_count())
+        self.parallel = parallel
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
         
@@ -85,10 +91,7 @@ class gnomAD_DB:
     def _pack_var_args(self, var: pd.Series) -> str:
         return (var.chrom, var.pos, var.ref, var.alt)
     
-    
-    def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
-        if var_df.empty:
-            return var_df
+    def _get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
         
         var_df = self._sanitize_variants(var_df)
         
@@ -123,6 +126,26 @@ class gnomAD_DB:
             c.executescript(sql_create_temp_table)
             c.executemany(sql_insert, rows)
             return pd.read_sql_query(sql_query, conn)
+        
+    
+    
+    def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
+        if var_df.empty:
+            return var_df
+        
+        if self.parallel and len(var_df) > 100 * self.cpu_count:
+            out = np.array_split(var_df, self.cpu_count)
+            assert len(out) == self.cpu_count
+            out = Parallel(self.cpu_count)(delayed(self._get_maf_from_df)(df, query) for df in out)
+            out = pd.concat(out)
+            out.set_index(var_df.index, inplace=True)
+            assert len(var_df) == len(out)
+        else:
+            out = self._get_maf_from_df(var_df, query)
+        
+        return out
+        
+        
     
     def _query_columns(self, query: str, prefix: str=None) -> str:
         if prefix is None:
