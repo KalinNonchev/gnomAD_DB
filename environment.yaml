@@ -22,3 +22,4 @@ dependencies:
       - joblib
       - pytest
       - nbformat>=5.1
+      - joblib
