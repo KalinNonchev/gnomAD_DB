@@ -11,6 +11,6 @@ setup(name='gnomad_db',
       url="https://github.com/KalinNonchev/gnomAD_MAF",
       packages=find_packages(),  # find packages
       include_package_data=True,
-      install_requires=['pandas', 'numpy'],  # external packages as dependencies,
+      install_requires=['pandas', 'numpy', 'joblib'],  # external packages as dependencies,
       python_requires='>=3.6'
       )
