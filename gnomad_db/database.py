@@ -2,15 +2,14 @@ import sqlite3
 import os
 import numpy as np
 import pandas as pd
-import multiprocessing
 from joblib import Parallel, delayed
 
 
 class gnomAD_DB:
     
-    def __init__(self, genodb_path, parallel=True):
+    def __init__(self, genodb_path, parallel=True, cpu_count=6):
         
-        self.cpu_count = int(multiprocessing.cpu_count())
+        self.cpu_count = cpu_count
         self.parallel = parallel
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
