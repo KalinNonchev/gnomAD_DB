@@ -9,6 +9,8 @@ It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe",
 
 ## Download SQLite preprocessed databases
 
+I have preprocessed and created sqlite3 databases for gnomAD v2.1.1 and 3.1.1, which can be easily downloaded from here.
+
 gnomAD v3.1.1 56G -  \
 gnomAD v2.1.1 20G - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
 
