@@ -23,4 +23,3 @@ dependencies:
       - pytest
       - nbformat>=5.1
       - joblib
-      - shutil

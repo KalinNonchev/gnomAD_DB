@@ -4,5 +4,4 @@ numpy
 pyyaml
 pytest
 joblib
-shutil
 tqdm
