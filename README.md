@@ -7,6 +7,24 @@ It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe",
 
 ###### The package works for all currently available gnomAD releases.(2021) 
 
+## Download SQLite preprocessed databases
+
+gnomAD v3.1.1 56G -  \
+gnomAD v2.1.1 20G - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
+
+and you can download it as:
+
+```python
+from gnomad_db.database import gnomAD_DB
+download_link = "https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1"
+output_location = "gnomad_db_v2.1.1.sqlite3.gz"
+gnomAD_DB.download_and_unzip(download_link, output_location)
+```
+#### NB this would take ~30-40min (network speed 10mb/s)
+
+
+
+or you can create the database by yourself. However, I recommend to use the preprocessed files.
 ## 1. Data preprocessing and SQL database creation
 
 Start by downloading the vcf files from gnomAD in a single directory:
