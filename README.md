@@ -80,7 +80,8 @@ database_location = "test_dir"
 db = gnomAD_DB(database_location)
 ```
 
-3. Insert some test variants to run the examples below
+3. Insert some test variants to run the examples below \
+**If you have downloaded the preprocessed sqlite3 files, you can skip this step as you already have variants**
 ```python
 # get some variants
 var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=db.columns, index_col=False)
@@ -89,7 +90,8 @@ var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=
 db.insert_variants(var_df)
 ```
 
-4. Query variant minor allele frequency
+4. Query variant minor allele frequency \
+**These example variants are assembled to hg38!**
 ```python
 # query some MAF scores
 dummy_var_df = pd.DataFrame({
