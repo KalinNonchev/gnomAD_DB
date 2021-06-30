@@ -140,7 +140,10 @@ class gnomAD_DB:
         if self.parallel and len(var_df) > 100 * self.cpu_count:
             out = np.array_split(var_df, self.cpu_count)
             assert len(out) == self.cpu_count
-            out = Parallel(self.cpu_count, prefer="threads")(delayed(self._get_maf_from_df)(df, query) for df in out)
+            
+            delayed_get_maf_from_df = delayed(self._get_maf_from_df)
+            
+            out = Parallel(self.cpu_count, prefer="threads")(delayed_get_maf_from_df(df, query) for df in out)
             out = pd.concat(out)
             out.set_index(var_df.index, inplace=True)
             assert len(var_df) == len(out)
