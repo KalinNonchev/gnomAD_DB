@@ -4,13 +4,14 @@ import numpy as np
 import pandas as pd
 import multiprocessing
 from joblib import Parallel, delayed
+from . import utils
 
 
 class gnomAD_DB:
     
-    def __init__(self, genodb_path, parallel=True):
+    def __init__(self, genodb_path, parallel=True, cpu_count=512):
         
-        self.cpu_count = int(multiprocessing.cpu_count())
+        self.cpu_count = min(cpu_count, int(multiprocessing.cpu_count()))
         self.parallel = parallel
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
@@ -182,7 +183,9 @@ class gnomAD_DB:
     
     
     def get_maf_from_str(self, var: str, query: str="AF") -> float:
-        # variant in form chrom:pos:ref>alt
+        """
+        get AF for variant in form chrom:pos:ref>alt
+        """
         
         chrom, pos, ref, alt = self._pack_from_str(var)
         
@@ -194,3 +197,11 @@ class gnomAD_DB:
         """
         
         return self.query_direct(sql_query).squeeze()
+    
+    
+    @staticmethod
+    def download_and_unzip(url, output_path):
+        """
+        download database and unzip file
+        """
+        utils.download_and_unzip_file(url, output_path)

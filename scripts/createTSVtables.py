@@ -19,6 +19,7 @@ from tqdm import tqdm
 from subprocess import PIPE, Popen
 import pandas as pd
 from joblib import Parallel, delayed
+import multiprocessing
 import os
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=["parameters"]
@@ -36,13 +37,21 @@ files
 tables_location = [f'{tables_location}/{file.split("/")[-1].replace(".vcf.bgz", "")}.tsv.gz' for file in files]
 tables_location
 
+# %% papermill={"duration": 0.008863, "end_time": "2021-05-05T20:00:58.715794", "exception": false, "start_time": "2021-05-05T20:00:58.706931", "status": "completed"} tags=[]
+cpu_count = int(multiprocessing.cpu_count())
+cpu_count
+
 
 # %% papermill={"duration": 0.008863, "end_time": "2021-05-05T20:00:58.715794", "exception": false, "start_time": "2021-05-05T20:00:58.706931", "status": "completed"} tags=[]
 # extract needed columns
 # if running DIRECTLY from notebook, add module load i12g/bcftools; in the beginning of cmd
 def create_table(file, table_location):
+    if "chrM" in file:
+        query_string = "%CHROM\t%POS\t%REF\t%ALT\t%AF_hom\t%AF_het\n"
+    else:
+        query_string = "%CHROM\t%POS\t%REF\t%ALT\t%AF\t%AF_afr\t%AF_eas\t%AF_fin\t%AF_nfe\t%AF_asj\t%AF_oth\t%AF_popmax\n"
     if not os.path.exists(table_location):
-        cmd = f"bcftools query -f '%CHROM\t%POS\t%REF\t%ALT\t%AF\t%AF_afr\t%AF_eas\t%AF_fin\t%AF_nfe\t%AF_asj\t%AF_oth\t%AF_popmax\n' {file} | gzip > {table_location}"
+        cmd = f"bcftools query -f '{query_string}' {file} | gzip > {table_location}"
         p = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
         print(p.communicate())
     
@@ -50,4 +59,4 @@ def create_table(file, table_location):
 
 # %% papermill={"duration": 0.329741, "end_time": "2021-05-05T20:00:59.051392", "exception": false, "start_time": "2021-05-05T20:00:58.721651", "status": "completed"} tags=[]
 # run bcftools in parallel
-Parallel(12)(delayed(create_table)(file, table_location) for file, table_location in tqdm(zip(files, tables_location)))
+Parallel(cpu_count)(delayed(create_table)(file, table_location) for file, table_location in tqdm(zip(files, tables_location)))
