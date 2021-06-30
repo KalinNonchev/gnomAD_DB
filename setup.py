@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='gnomad_db',
-      version='0.0.5',
+      version='0.0.6',
       description='This package scales the huge gnomAD files to a SQLite database, which is easy and fast to query. It extracts from a gnomAD vcf the minor allele frequency for each variant.',
       author='KalinNonchev',
       author_email='boo@foo.com',
