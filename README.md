@@ -7,27 +7,27 @@ It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe",
 
 ###### The package works for all currently available gnomAD releases.(2021) 
 
-## Download SQLite preprocessed databases
+## 1. Download SQLite preprocessed files
 
-I have preprocessed and created sqlite3 databases for gnomAD v2.1.1 and 3.1.1, which can be easily downloaded from here.
+I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.1 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-gnomAD v3.1.1 56G -  \
-gnomAD v2.1.1 20G - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
+gnomAD v3.1.1 (hg38, **759'302'267** variants) 25G zipped, 56G in total - https://zenodo.org/record/5045170/files/gnomad_db_v3.1.1.sqlite3.gz?download=1 \
+gnomAD v2.1.1 (hg19, **261'942'336** variants) 9G zipped, 20G in total - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
 
-and you can download it as:
+You can download it as:
 
 ```python
 from gnomad_db.database import gnomAD_DB
 download_link = "https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1"
-output_location = "gnomad_db_v2.1.1.sqlite3.gz"
-gnomAD_DB.download_and_unzip(download_link, output_location)
+output_dir = "test_dir" # database_location
+gnomAD_DB.download_and_unzip(download_link, output_dir)
 ```
-#### NB this would take ~30-40min (network speed 10mb/s)
+#### NB this would take ~30min (network speed 10mb/s)
 
 
+or you can create the database by yourself. **However, I recommend to use the preprocessed files to save ressources and time**. If you do so, you can go to **2. API usage** and explore the package and its great features!
 
-or you can create the database by yourself. However, I recommend to use the preprocessed files.
-## 1. Data preprocessing and SQL database creation
+## 1.1 Data preprocessing and SQL database creation
 
 Start by downloading the vcf files from gnomAD in a single directory:
 
