@@ -4,3 +4,6 @@ numpy
 pyyaml
 pytest
 joblib
+gzip
+shutil
+tqdm
