@@ -142,8 +142,8 @@ class gnomAD_DB:
             assert len(out) == self.cpu_count
             
             delayed_get_maf_from_df = delayed(self._get_maf_from_df)
-            
             out = Parallel(self.cpu_count, prefer="threads")(delayed_get_maf_from_df(df, query) for df in out)
+            
             out = pd.concat(out)
             out.set_index(var_df.index, inplace=True)
             assert len(var_df) == len(out)
