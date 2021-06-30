@@ -9,10 +9,13 @@ from . import utils
 
 class gnomAD_DB:
     
-    def __init__(self, genodb_path, parallel=True, cpu_count=512):
+    def __init__(self, genodb_path, parallel=False, cpu_count=None):
         
-        self.cpu_count = min(cpu_count, int(multiprocessing.cpu_count()))
+        
         self.parallel = parallel
+        
+        if self.parallel:
+            self.cpu_count = cpu_count if isinstance(cpu_count, int) else int(multiprocessing.cpu_count())
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
         
@@ -137,7 +140,7 @@ class gnomAD_DB:
         if self.parallel and len(var_df) > 100 * self.cpu_count:
             out = np.array_split(var_df, self.cpu_count)
             assert len(out) == self.cpu_count
-            out = Parallel(self.cpu_count)(delayed(self._get_maf_from_df)(df, query) for df in out)
+            out = Parallel(self.cpu_count, prefer="threads")(delayed(self._get_maf_from_df)(df, query) for df in out)
             out = pd.concat(out)
             out.set_index(var_df.index, inplace=True)
             assert len(var_df) == len(out)
