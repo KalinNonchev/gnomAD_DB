@@ -23,5 +23,4 @@ dependencies:
       - pytest
       - nbformat>=5.1
       - joblib
-      - gzip
       - shutil
