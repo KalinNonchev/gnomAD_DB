@@ -26,8 +26,8 @@ def unzip(output_dir):
         with open(file_name_out, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
     time.sleep(5)
-    os.remove(path_to_zip_file)
-    print(f"Database location: {file_name}")
+    os.remove(file_name_in)
+    print(f"Database location: {file_name_out}")
 
 def download_and_unzip_file(url, output_dir):
     print("Starting downloading...")
