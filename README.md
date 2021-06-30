@@ -12,7 +12,7 @@ It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe",
 I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.1 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
 gnomAD v3.1.1 (hg38, **759'302'267** variants) 25G zipped, 56G in total - https://zenodo.org/record/5045170/files/gnomad_db_v3.1.1.sqlite3.gz?download=1 \
-gnomAD v2.1.1 (hg19, **261'942'336** variants) 9G zipped, 20G in total - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
+gnomAD v2.1.1 (hg19, **261'942'336** variants) 9G zipped, 20G in total - https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 
 
 You can download it as:
 
