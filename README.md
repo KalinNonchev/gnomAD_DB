@@ -5,7 +5,7 @@ This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite d
 
 It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe", "AF_asj", "AF_oth", "AF_popmax"] columns. 
 
-###### The package works for all currently available gnomAD releases.(2021) 
+###### The package works for all currently available gnomAD releases.(November 2021) 
 
 ## 1. Download SQLite preprocessed files
 
