@@ -14,6 +14,9 @@
 # ---
 
 # %%
+import os
+#os.chdir('../')
+
 from gnomad_db.database import gnomAD_DB
 import numpy as np
 import pandas as pd

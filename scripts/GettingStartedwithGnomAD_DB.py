@@ -75,13 +75,13 @@ var_df.head()
 # It should contain the columns: [chrom, pos, ref, alt]
 
 # %%
-db.get_maf_from_df(var_df, "AF").head() # only one columns
+db.get_info_from_df(var_df, "AF").head() # only one columns
 
 # %%
-db.get_maf_from_df(var_df, "AF, AF_popmax").head() # multiple columns
+db.get_info_from_df(var_df, "AF, AF_popmax").head() # multiple columns
 
 # %%
-db.get_maf_from_df(var_df, "*") # everything
+db.get_info_from_df(var_df, "*") # everything
 
 # %%
 dummy_var_df = pd.DataFrame({
@@ -92,19 +92,19 @@ dummy_var_df = pd.DataFrame({
 dummy_var_df
 
 # %%
-db.get_maf_from_df(dummy_var_df, "AF")
+db.get_info_from_df(dummy_var_df, "AF")
 
 # %% [markdown]
 # ## You can pass a single string as a variant
 
 # %%
-db.get_maf_from_str("21:9825790:C>T", "AF")
+db.get_info_from_str("21:9825790:C>T", "AF")
 
 # %%
-db.get_maf_from_str("21:9825790:C>T", "*")
+db.get_info_from_str("21:9825790:C>T", "*")
 
 # %% [markdown]
 # ## You can look for the MAF scores in an interval
 
 # %%
-db.get_mafs_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="*")
+db.get_info_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="*")

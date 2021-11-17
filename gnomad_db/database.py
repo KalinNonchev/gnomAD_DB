@@ -5,7 +5,7 @@ import pandas as pd
 import multiprocessing
 from joblib import Parallel, delayed
 from . import utils
-
+import yaml
 
 class gnomAD_DB:
     
@@ -19,7 +19,11 @@ class gnomAD_DB:
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
         
-        self.columns = ["chrom", "pos", "ref", "alt", "AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe", "AF_asj", "AF_oth", "AF_popmax"]
+        with open("gnomad_db/gnomad_columns.yaml") as f:
+            columns = yaml.load(f, Loader=yaml.FullLoader)
+        
+        self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns["value_columns"]
+        self.dict_columns = columns
         
         if not os.path.exists(self.db_file):
             if not os.path.exists(genodb_path):
@@ -33,20 +37,15 @@ class gnomAD_DB:
     
     
     def create_table(self):
-        sql_create = """
+        value_columns = ",".join([f"{col} REAL" for col in self.dict_columns["value_columns"]])
+        sql_create = f"""
         CREATE TABLE gnomad_db (
             chrom TEXT,
             pos INTEGER,
             ref TEXT,
             alt TEXT,
-            AF REAL,
-            AF_afr REAL,
-            AF_eas REAL,
-            AF_fin REAL,
-            AF_nfe REAL,
-            AF_asj REAL,
-            AF_oth REAL,
-            AF_popmax REAL,
+            filter TEXT,
+            {value_columns},
             PRIMARY KEY (chrom, pos, ref, alt));
         """
         
@@ -77,9 +76,11 @@ class gnomAD_DB:
         
         rows = [tuple(x) for x in var_df.to_numpy()]
         
+        num_values = ",".join(["?" for col in self.columns])
+        
         sql_input = f"""
                     INSERT OR REPLACE INTO gnomad_db({", ".join(self.columns)})
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+                    VALUES ({num_values})
                     """
         with self.open_dbconn() as conn:
             c = conn.cursor()
@@ -95,7 +96,7 @@ class gnomAD_DB:
     def _pack_var_args(self, var: pd.Series) -> str:
         return (var.chrom, var.pos, var.ref, var.alt)
     
-    def _get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
+    def _get_info_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
         
         var_df = self._sanitize_variants(var_df)
         
@@ -133,7 +134,7 @@ class gnomAD_DB:
         
     
     
-    def get_maf_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
+    def get_info_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
         if var_df.empty:
             return var_df
         
@@ -141,14 +142,14 @@ class gnomAD_DB:
             out = np.array_split(var_df, self.cpu_count)
             assert len(out) == self.cpu_count
             
-            delayed_get_maf_from_df = delayed(self._get_maf_from_df)
+            delayed_get_maf_from_df = delayed(self._get_info_from_df)
             out = Parallel(self.cpu_count, prefer="threads")(delayed_get_maf_from_df(df, query) for df in out)
             
             out = pd.concat(out)
             out.set_index(var_df.index, inplace=True)
             assert len(var_df) == len(out)
         else:
-            out = self._get_maf_from_df(var_df, query)
+            out = self._get_info_from_df(var_df, query)
         
         return out
         
@@ -175,7 +176,7 @@ class gnomAD_DB:
             c = conn.cursor()
             return pd.read_sql_query(sql_query, conn)
     
-    def get_mafs_for_interval(self, chrom: str, interval_start: int, interval_end: int, query: str="AF") -> pd.DataFrame:
+    def get_info_for_interval(self, chrom: str, interval_start: int, interval_end: int, query: str="AF") -> pd.DataFrame:
                 
         query = self._query_columns(query)
         
@@ -188,9 +189,9 @@ class gnomAD_DB:
         
     
     
-    def get_maf_from_str(self, var: str, query: str="AF") -> float:
+    def get_info_from_str(self, var: str, query: str="AF") -> float:
         """
-        get AF for variant in form chrom:pos:ref>alt
+        get columns for variant in form chrom:pos:ref>alt
         """
         
         chrom, pos, ref, alt = self._pack_from_str(var)
