@@ -6,7 +6,6 @@ import multiprocessing
 from joblib import Parallel, delayed
 from . import utils
 import yaml
-import time
 
 class gnomAD_DB:
     
