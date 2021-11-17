@@ -6,6 +6,7 @@ import multiprocessing
 from joblib import Parallel, delayed
 from . import utils
 import yaml
+import time
 
 class gnomAD_DB:
     
@@ -62,8 +63,6 @@ class gnomAD_DB:
         ), "Columns are missing. The dataframe should contain: " + ", ".join(self.columns)
         
         
-        
-        
         ## sort and process var_df
         var_df = var_df.reindex(self.columns, axis=1)
         var_df = self._sanitize_variants(var_df)
@@ -82,13 +81,14 @@ class gnomAD_DB:
                     INSERT OR REPLACE INTO gnomad_db({", ".join(self.columns)})
                     VALUES ({num_values})
                     """
+
         with self.open_dbconn() as conn:
             c = conn.cursor()
             c.executemany(sql_input, rows)
     
-    
     def _sanitize_variants(self, var_df: pd.DataFrame) -> pd.DataFrame:
         var_df = var_df.replace(".", np.NaN)
+        var_df["pos"] = var_df["pos"].astype(int)
         var_df["chrom"] = var_df["chrom"].astype(str)
         var_df["chrom"] = var_df.chrom.apply(lambda x: x.replace("chr", ""))
         return var_df
@@ -97,7 +97,6 @@ class gnomAD_DB:
         return (var.chrom, var.pos, var.ref, var.alt)
     
     def _get_info_from_df(self, var_df: pd.DataFrame, query: str="AF") -> pd.Series:
-        
         var_df = self._sanitize_variants(var_df)
         
         rows = [self._pack_var_args(var) for _, var in var_df.iterrows()]

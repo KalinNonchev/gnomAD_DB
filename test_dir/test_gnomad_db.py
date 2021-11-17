@@ -21,7 +21,7 @@ def database():
 
     
 
-def test_get_maf_from_df(database):
+def test_get_info_from_df(database):
     
     dummy_var_df = pd.DataFrame({
                                     "chrom": ["1", "21"], 
@@ -46,20 +46,20 @@ def test_get_maf_from_df(database):
                                  'AF_popmax': {0: None, 1: None}
     })
     
-    observed = database.get_maf_from_df(dummy_var_df, "*")
-    
-    assert expected.equals(observed)
+    observed = database.get_info_from_df(dummy_var_df, "*")
+
+    assert expected.equals(observed[expected.columns])
     
     expected = pd.DataFrame({'AF': {0: np.NaN, 1: 0.000243902}})
     
-    observed = database.get_maf_from_df(dummy_var_df, "AF")
+    observed = database.get_info_from_df(dummy_var_df, "AF")
     
-    assert expected.equals(observed)
+    assert expected.equals(observed[expected.columns])
 
  
   
 
-def test_get_maf_from_str(database):
+def test_get_info_from_str(database):
     
     dummy_str = "21:9825790:C>T"
     
@@ -79,13 +79,13 @@ def test_get_maf_from_str(database):
                          'AF_popmax': None
     })
     
-    observed = database.get_maf_from_str(dummy_str, "*")
+    observed = database.get_info_from_str(dummy_str, "*")
     
-    assert expected.equals(observed)
+    assert expected.equals(observed[expected.index])
    
     expected = 0.000243902
     
-    observed = database.get_maf_from_str(dummy_str, "AF")
+    observed = database.get_info_from_str(dummy_str, "AF")
     
     assert round(expected, 5) == round(observed, 5) 
 
@@ -99,7 +99,7 @@ def test_insert_variants(database):
     
     database.insert_variants(dummy_var_df)
     
-    observed = database.get_maf_from_df(dummy_var_df, "*")
+    observed = database.get_info_from_df(dummy_var_df, "*")
     
     dummy_var_df["pos"] = dummy_var_df["pos"].astype(int)
     observed["pos"] = observed["pos"].astype(int)
@@ -121,7 +121,7 @@ def test_query_variants_x320_000_rows(database):
     dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
     
     # parallel
-    observed = database.get_maf_from_df(dummy_var_df, "*")
+    observed = database.get_info_from_df(dummy_var_df, "*")
     
     expected_af = dummy_var_df.AF.astype(float).values
     observed_af = observed.AF.astype(float).values
@@ -134,7 +134,7 @@ def test_query_variants_x320_000_rows(database):
     
     # single core
     dummy_var_df = dummy_var_df[:10]
-    observed = database.get_maf_from_df(dummy_var_df, "*")
+    observed = database.get_info_from_df(dummy_var_df, "*")
     
     expected_af = dummy_var_df.AF.astype(float).values
     observed_af = observed.AF.astype(float).values
@@ -156,13 +156,13 @@ def test_pack_from_str(database):
     
     assert expected == observed
 
-def test_query_columns(database):
-    
-    expected = 'chrom, pos, ref, alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
-    observed = database._query_columns("*")
-    
-    expected = 'tt.chrom, tt.pos, tt.ref, tt.alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
-    observed = database._query_columns("*", prefix="tt")
+#def test_query_columns(database):
+#    
+#    expected = 'chrom, pos, ref, alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
+#    observed = database._query_columns("*")
+#    
+#    expected = 'tt.chrom, tt.pos, tt.ref, tt.alt, AF, AF_afr, AF_eas, AF_fin, AF_nfe, AF_asj, AF_oth, AF_popmax'
+#    observed = database._query_columns("*", prefix="tt")
     
     
     
@@ -184,6 +184,6 @@ def test_get_interval_from_str(database):
                              'AF_oth': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
                              'AF_popmax': {0: 0.00145879, 1: 0.00109409, 2: np.NaN, 3: np.NaN, 4: 0.00126263}})
     
-    observed = database.get_mafs_for_interval(chrom=21, interval_start=9825787, interval_end=9825793, query="*")
+    observed = database.get_info_for_interval(chrom=21, interval_start=9825787, interval_end=9825793, query="*")
     
-    assert expected.equals(observed)
+    assert expected.equals(observed[expected.columns])

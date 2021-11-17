@@ -25,8 +25,8 @@ from tqdm import tqdm
 import glob
 
 # %% tags=["parameters"]
-database_location = "test"
-tables_location = "test"
+database_location = "test_out"
+tables_location = "test_out"
 
 # %%
 # initialize database
