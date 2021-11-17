@@ -116,12 +116,9 @@ def test_query_variants_x320_000_rows(database):
     
     dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
     dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
-    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
-    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
-    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
     
     # parallel
-    observed = database.get_info_from_df(dummy_var_df, "*")
+    observed = database.get_info_from_df(dummy_var_df, "AF")
     
     expected_af = dummy_var_df.AF.astype(float).values
     observed_af = observed.AF.astype(float).values
@@ -134,7 +131,7 @@ def test_query_variants_x320_000_rows(database):
     
     # single core
     dummy_var_df = dummy_var_df[:10]
-    observed = database.get_info_from_df(dummy_var_df, "*")
+    observed = database.get_info_from_df(dummy_var_df, "AF")
     
     expected_af = dummy_var_df.AF.astype(float).values
     observed_af = observed.AF.astype(float).values
