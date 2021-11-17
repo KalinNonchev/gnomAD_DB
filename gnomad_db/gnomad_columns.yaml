@@ -5,543 +5,543 @@ base_columns:
     - ALT
     - FILTER
 value_columns:
-    - AC
-    - AN
-    - AF
-    - rf_tp_probability
-    - FS
-    - InbreedingCoeff
-    - MQ
-    - MQRankSum
-    - QD
-    - ReadPosRankSum
-    - SOR
-    - BaseQRankSum
-    - ClippingRankSum
-    - DP
-    - VQSLOD
-    - n_alt_alleles
-    - pab_max
-    - dp_hist_alt_n_larger
-    - dp_hist_all_n_larger
-    - AC_nfe_seu
-    - AN_nfe_seu
-    - AF_nfe_seu
-    - nhomalt_nfe_seu
-    - controls_AC_afr_male
-    - controls_AN_afr_male
-    - controls_AF_afr_male
-    - controls_nhomalt_afr_male
-    - non_topmed_AC_amr
-    - non_topmed_AN_amr
-    - non_topmed_AF_amr
-    - non_topmed_nhomalt_amr
-    - AC_raw
-    - AN_raw
-    - AF_raw
-    - nhomalt_raw
-    - AC_fin_female
-    - AN_fin_female
-    - AF_fin_female
-    - nhomalt_fin_female
-    - non_neuro_AC_asj_female
-    - non_neuro_AN_asj_female
-    - non_neuro_AF_asj_female
-    - non_neuro_nhomalt_asj_female
-    - non_neuro_AC_afr_male
-    - non_neuro_AN_afr_male
-    - non_neuro_AF_afr_male
-    - non_neuro_nhomalt_afr_male
-    - AC_afr_male
-    - AN_afr_male
-    - AF_afr_male
-    - nhomalt_afr_male
-    - AC_afr
-    - AN_afr
-    - AF_afr
-    - nhomalt_afr
-    - non_neuro_AC_afr_female
-    - non_neuro_AN_afr_female
-    - non_neuro_AF_afr_female
-    - non_neuro_nhomalt_afr_female
-    - non_topmed_AC_amr_female
-    - non_topmed_AN_amr_female
-    - non_topmed_AF_amr_female
-    - non_topmed_nhomalt_amr_female
-    - non_topmed_AC_oth_female
-    - non_topmed_AN_oth_female
-    - non_topmed_AF_oth_female
-    - non_topmed_nhomalt_oth_female
-    - AC_eas_female
-    - AN_eas_female
-    - AF_eas_female
-    - nhomalt_eas_female
-    - AC_afr_female
-    - AN_afr_female
-    - AF_afr_female
-    - nhomalt_afr_female
-    - non_neuro_AC_female
-    - non_neuro_AN_female
-    - non_neuro_AF_female
-    - non_neuro_nhomalt_female
-    - controls_AC_afr
-    - controls_AN_afr
-    - controls_AF_afr
-    - controls_nhomalt_afr
-    - AC_nfe_onf
-    - AN_nfe_onf
-    - AF_nfe_onf
-    - nhomalt_nfe_onf
-    - controls_AC_fin_male
-    - controls_AN_fin_male
-    - controls_AF_fin_male
-    - controls_nhomalt_fin_male
-    - non_neuro_AC_nfe_nwe
-    - non_neuro_AN_nfe_nwe
-    - non_neuro_AF_nfe_nwe
-    - non_neuro_nhomalt_nfe_nwe
-    - AC_fin_male
-    - AN_fin_male
-    - AF_fin_male
-    - nhomalt_fin_male
-    - AC_nfe_female
-    - AN_nfe_female
-    - AF_nfe_female
-    - nhomalt_nfe_female
-    - AC_amr
-    - AN_amr
-    - AF_amr
-    - nhomalt_amr
-    - non_topmed_AC_nfe_male
-    - non_topmed_AN_nfe_male
-    - non_topmed_AF_nfe_male
-    - non_topmed_nhomalt_nfe_male
-    - AC_eas
-    - AN_eas
-    - AF_eas
-    - nhomalt_eas
-    - nhomalt
-    - non_neuro_AC_nfe_female
-    - non_neuro_AN_nfe_female
-    - non_neuro_AF_nfe_female
-    - non_neuro_nhomalt_nfe_female
-    - non_neuro_AC_afr
-    - non_neuro_AN_afr
-    - non_neuro_AF_afr
-    - non_neuro_nhomalt_afr
-    - controls_AC_raw
-    - controls_AN_raw
-    - controls_AF_raw
-    - controls_nhomalt_raw
-    - controls_AC_male
-    - controls_AN_male
-    - controls_AF_male
-    - controls_nhomalt_male
-    - non_topmed_AC_male
-    - non_topmed_AN_male
-    - non_topmed_AF_male
-    - non_topmed_nhomalt_male
-    - controls_AC_nfe_female
-    - controls_AN_nfe_female
-    - controls_AF_nfe_female
-    - controls_nhomalt_nfe_female
-    - non_neuro_AC_amr
-    - non_neuro_AN_amr
-    - non_neuro_AF_amr
-    - non_neuro_nhomalt_amr
-    - non_neuro_AC_eas_female
-    - non_neuro_AN_eas_female
-    - non_neuro_AF_eas_female
-    - non_neuro_nhomalt_eas_female
-    - AC_asj_male
-    - AN_asj_male
-    - AF_asj_male
-    - nhomalt_asj_male
-    - controls_AC_nfe_male
-    - controls_AN_nfe_male
-    - controls_AF_nfe_male
-    - controls_nhomalt_nfe_male
-    - non_neuro_AC_fin
-    - non_neuro_AN_fin
-    - non_neuro_AF_fin
-    - non_neuro_nhomalt_fin
-    - AC_oth_female
-    - AN_oth_female
-    - AF_oth_female
-    - nhomalt_oth_female
-    - controls_AC_nfe
-    - controls_AN_nfe
-    - controls_AF_nfe
-    - controls_nhomalt_nfe
-    - controls_AC_oth_female
-    - controls_AN_oth_female
-    - controls_AF_oth_female
-    - controls_nhomalt_oth_female
-    - controls_AC_asj
-    - controls_AN_asj
-    - controls_AF_asj
-    - controls_nhomalt_asj
-    - non_neuro_AC_amr_male
-    - non_neuro_AN_amr_male
-    - non_neuro_AF_amr_male
-    - non_neuro_nhomalt_amr_male
-    - controls_AC_nfe_nwe
-    - controls_AN_nfe_nwe
-    - controls_AF_nfe_nwe
-    - controls_nhomalt_nfe_nwe
-    - AC_nfe_nwe
-    - AN_nfe_nwe
-    - AF_nfe_nwe
-    - nhomalt_nfe_nwe
-    - controls_AC_nfe_seu
-    - controls_AN_nfe_seu
-    - controls_AF_nfe_seu
-    - controls_nhomalt_nfe_seu
-    - non_neuro_AC_amr_female
-    - non_neuro_AN_amr_female
-    - non_neuro_AF_amr_female
-    - non_neuro_nhomalt_amr_female
-    - non_neuro_AC_nfe_onf
-    - non_neuro_AN_nfe_onf
-    - non_neuro_AF_nfe_onf
-    - non_neuro_nhomalt_nfe_onf
-    - non_topmed_AC_eas_male
-    - non_topmed_AN_eas_male
-    - non_topmed_AF_eas_male
-    - non_topmed_nhomalt_eas_male
-    - controls_AC_amr_female
-    - controls_AN_amr_female
-    - controls_AF_amr_female
-    - controls_nhomalt_amr_female
-    - non_neuro_AC_fin_male
-    - non_neuro_AN_fin_male
-    - non_neuro_AF_fin_male
-    - non_neuro_nhomalt_fin_male
-    - AC_female
-    - AN_female
-    - AF_female
-    - nhomalt_female
-    - non_neuro_AC_oth_male
-    - non_neuro_AN_oth_male
-    - non_neuro_AF_oth_male
-    - non_neuro_nhomalt_oth_male
-    - non_topmed_AC_nfe_est
-    - non_topmed_AN_nfe_est
-    - non_topmed_AF_nfe_est
-    - non_topmed_nhomalt_nfe_est
-    - non_topmed_AC_nfe_nwe
-    - non_topmed_AN_nfe_nwe
-    - non_topmed_AF_nfe_nwe
-    - non_topmed_nhomalt_nfe_nwe
-    - non_topmed_AC_amr_male
-    - non_topmed_AN_amr_male
-    - non_topmed_AF_amr_male
-    - non_topmed_nhomalt_amr_male
-    - non_topmed_AC_nfe_onf
-    - non_topmed_AN_nfe_onf
-    - non_topmed_AF_nfe_onf
-    - non_topmed_nhomalt_nfe_onf
-    - controls_AC_eas_male
-    - controls_AN_eas_male
-    - controls_AF_eas_male
-    - controls_nhomalt_eas_male
-    - controls_AC_oth_male
-    - controls_AN_oth_male
-    - controls_AF_oth_male
-    - controls_nhomalt_oth_male
-    - non_topmed_AC
-    - non_topmed_AN
-    - non_topmed_AF
-    - non_topmed_nhomalt
-    - controls_AC_fin
-    - controls_AN_fin
-    - controls_AF_fin
-    - controls_nhomalt_fin
-    - non_neuro_AC_nfe
-    - non_neuro_AN_nfe
-    - non_neuro_AF_nfe
-    - non_neuro_nhomalt_nfe
-    - non_neuro_AC_fin_female
-    - non_neuro_AN_fin_female
-    - non_neuro_AF_fin_female
-    - non_neuro_nhomalt_fin_female
-    - non_topmed_AC_nfe_seu
-    - non_topmed_AN_nfe_seu
-    - non_topmed_AF_nfe_seu
-    - non_topmed_nhomalt_nfe_seu
-    - controls_AC_eas_female
-    - controls_AN_eas_female
-    - controls_AF_eas_female
-    - controls_nhomalt_eas_female
-    - non_topmed_AC_asj
-    - non_topmed_AN_asj
-    - non_topmed_AF_asj
-    - non_topmed_nhomalt_asj
-    - controls_AC_nfe_onf
-    - controls_AN_nfe_onf
-    - controls_AF_nfe_onf
-    - controls_nhomalt_nfe_onf
-    - non_neuro_AC
-    - non_neuro_AN
-    - non_neuro_AF
-    - non_neuro_nhomalt
-    - non_topmed_AC_nfe
-    - non_topmed_AN_nfe
-    - non_topmed_AF_nfe
-    - non_topmed_nhomalt_nfe
-    - non_topmed_AC_raw
-    - non_topmed_AN_raw
-    - non_topmed_AF_raw
-    - non_topmed_nhomalt_raw
-    - non_neuro_AC_nfe_est
-    - non_neuro_AN_nfe_est
-    - non_neuro_AF_nfe_est
-    - non_neuro_nhomalt_nfe_est
-    - non_topmed_AC_oth_male
-    - non_topmed_AN_oth_male
-    - non_topmed_AF_oth_male
-    - non_topmed_nhomalt_oth_male
-    - AC_nfe_est
-    - AN_nfe_est
-    - AF_nfe_est
-    - nhomalt_nfe_est
-    - non_topmed_AC_afr_male
-    - non_topmed_AN_afr_male
-    - non_topmed_AF_afr_male
-    - non_topmed_nhomalt_afr_male
-    - AC_eas_male
-    - AN_eas_male
-    - AF_eas_male
-    - nhomalt_eas_male
-    - controls_AC_eas
-    - controls_AN_eas
-    - controls_AF_eas
-    - controls_nhomalt_eas
-    - non_neuro_AC_eas_male
-    - non_neuro_AN_eas_male
-    - non_neuro_AF_eas_male
-    - non_neuro_nhomalt_eas_male
-    - non_neuro_AC_asj_male
-    - non_neuro_AN_asj_male
-    - non_neuro_AF_asj_male
-    - non_neuro_nhomalt_asj_male
-    - controls_AC_oth
-    - controls_AN_oth
-    - controls_AF_oth
-    - controls_nhomalt_oth
-    - AC_nfe
-    - AN_nfe
-    - AF_nfe
-    - nhomalt_nfe
-    - non_topmed_AC_female
-    - non_topmed_AN_female
-    - non_topmed_AF_female
-    - non_topmed_nhomalt_female
-    - non_neuro_AC_asj
-    - non_neuro_AN_asj
-    - non_neuro_AF_asj
-    - non_neuro_nhomalt_asj
-    - non_topmed_AC_eas_female
-    - non_topmed_AN_eas_female
-    - non_topmed_AF_eas_female
-    - non_topmed_nhomalt_eas_female
-    - non_neuro_AC_raw
-    - non_neuro_AN_raw
-    - non_neuro_AF_raw
-    - non_neuro_nhomalt_raw
-    - non_topmed_AC_eas
-    - non_topmed_AN_eas
-    - non_topmed_AF_eas
-    - non_topmed_nhomalt_eas
-    - non_topmed_AC_fin_male
-    - non_topmed_AN_fin_male
-    - non_topmed_AF_fin_male
-    - non_topmed_nhomalt_fin_male
-    - AC_fin
-    - AN_fin
-    - AF_fin
-    - nhomalt_fin
-    - AC_nfe_male
-    - AN_nfe_male
-    - AF_nfe_male
-    - nhomalt_nfe_male
-    - controls_AC_amr_male
-    - controls_AN_amr_male
-    - controls_AF_amr_male
-    - controls_nhomalt_amr_male
-    - controls_AC_afr_female
-    - controls_AN_afr_female
-    - controls_AF_afr_female
-    - controls_nhomalt_afr_female
-    - controls_AC_amr
-    - controls_AN_amr
-    - controls_AF_amr
-    - controls_nhomalt_amr
-    - AC_asj_female
-    - AN_asj_female
-    - AF_asj_female
-    - nhomalt_asj_female
-    - non_neuro_AC_eas
-    - non_neuro_AN_eas
-    - non_neuro_AF_eas
-    - non_neuro_nhomalt_eas
-    - non_neuro_AC_male
-    - non_neuro_AN_male
-    - non_neuro_AF_male
-    - non_neuro_nhomalt_male
-    - AC_asj
-    - AN_asj
-    - AF_asj
-    - nhomalt_asj
-    - controls_AC_nfe_est
-    - controls_AN_nfe_est
-    - controls_AF_nfe_est
-    - controls_nhomalt_nfe_est
-    - non_topmed_AC_asj_female
-    - non_topmed_AN_asj_female
-    - non_topmed_AF_asj_female
-    - non_topmed_nhomalt_asj_female
-    - non_topmed_AC_oth
-    - non_topmed_AN_oth
-    - non_topmed_AF_oth
-    - non_topmed_nhomalt_oth
-    - non_topmed_AC_fin_female
-    - non_topmed_AN_fin_female
-    - non_topmed_AF_fin_female
-    - non_topmed_nhomalt_fin_female
-    - AC_oth
-    - AN_oth
-    - AF_oth
-    - nhomalt_oth
-    - non_neuro_AC_nfe_male
-    - non_neuro_AN_nfe_male
-    - non_neuro_AF_nfe_male
-    - non_neuro_nhomalt_nfe_male
-    - controls_AC_female
-    - controls_AN_female
-    - controls_AF_female
-    - controls_nhomalt_female
-    - non_topmed_AC_fin
-    - non_topmed_AN_fin
-    - non_topmed_AF_fin
-    - non_topmed_nhomalt_fin
-    - non_topmed_AC_nfe_female
-    - non_topmed_AN_nfe_female
-    - non_topmed_AF_nfe_female
-    - non_topmed_nhomalt_nfe_female
-    - controls_AC_asj_male
-    - controls_AN_asj_male
-    - controls_AF_asj_male
-    - controls_nhomalt_asj_male
-    - non_topmed_AC_asj_male
-    - non_topmed_AN_asj_male
-    - non_topmed_AF_asj_male
-    - non_topmed_nhomalt_asj_male
-    - non_neuro_AC_oth
-    - non_neuro_AN_oth
-    - non_neuro_AF_oth
-    - non_neuro_nhomalt_oth
-    - AC_male
-    - AN_male
-    - AF_male
-    - nhomalt_male
-    - controls_AC_fin_female
-    - controls_AN_fin_female
-    - controls_AF_fin_female
-    - controls_nhomalt_fin_female
-    - controls_AC_asj_female
-    - controls_AN_asj_female
-    - controls_AF_asj_female
-    - controls_nhomalt_asj_female
-    - AC_amr_male
-    - AN_amr_male
-    - AF_amr_male
-    - nhomalt_amr_male
-    - AC_amr_female
-    - AN_amr_female
-    - AF_amr_female
-    - nhomalt_amr_female
-    - AC_oth_male
-    - AN_oth_male
-    - AF_oth_male
-    - nhomalt_oth_male
-    - non_neuro_AC_nfe_seu
-    - non_neuro_AN_nfe_seu
-    - non_neuro_AF_nfe_seu
-    - non_neuro_nhomalt_nfe_seu
-    - non_topmed_AC_afr_female
-    - non_topmed_AN_afr_female
-    - non_topmed_AF_afr_female
-    - non_topmed_nhomalt_afr_female
-    - non_topmed_AC_afr
-    - non_topmed_AN_afr
-    - non_topmed_AF_afr
-    - non_topmed_nhomalt_afr
-    - controls_AC
-    - controls_AN
-    - controls_AF
-    - controls_nhomalt
-    - non_neuro_AC_oth_female
-    - non_neuro_AN_oth_female
-    - non_neuro_AF_oth_female
-    - non_neuro_nhomalt_oth_female
-    - non_topmed_faf95_amr
-    - non_topmed_faf99_amr
-    - faf95_afr
-    - faf99_afr
-    - controls_faf95_afr
-    - controls_faf99_afr
-    - faf95_amr
-    - faf99_amr
-    - faf95_eas
-    - faf99_eas
-    - faf95
-    - faf99
-    - non_neuro_faf95_afr
-    - non_neuro_faf99_afr
-    - non_neuro_faf95_amr
-    - non_neuro_faf99_amr
-    - controls_faf95_nfe
-    - controls_faf99_nfe
-    - non_topmed_faf95
-    - non_topmed_faf99
-    - non_neuro_faf95_nfe
-    - non_neuro_faf99_nfe
-    - non_neuro_faf95
-    - non_neuro_faf99
-    - non_topmed_faf95_nfe
-    - non_topmed_faf99_nfe
-    - controls_faf95_eas
-    - controls_faf99_eas
-    - faf95_nfe
-    - faf99_nfe
-    - non_topmed_faf95_eas
-    - non_topmed_faf99_eas
-    - controls_faf95_amr
-    - controls_faf99_amr
-    - non_neuro_faf95_eas
-    - non_neuro_faf99_eas
-    - non_topmed_faf95_afr
-    - non_topmed_faf99_afr
-    - controls_faf95
-    - controls_faf99
-    - controls_AC_popmax
-    - controls_AN_popmax
-    - controls_AF_popmax
-    - controls_nhomalt_popmax
-    - AC_popmax
-    - AN_popmax
-    - AF_popmax
-    - nhomalt_popmax
-    - age_hist_het_n_smaller
-    - age_hist_het_n_larger
-    - age_hist_hom_n_smaller
-    - age_hist_hom_n_larger
-    - non_neuro_AC_popmax
-    - non_neuro_AN_popmax
-    - non_neuro_AF_popmax
-    - non_neuro_nhomalt_popmax
-    - non_topmed_AC_popmax
-    - non_topmed_AN_popmax
-    - non_topmed_AF_popmax
-    - non_topmed_nhomalt_popmax
+    - AC # Alternate allele count for samples
+    - AN # Total number of alleles in samples
+    - AF # Alternate allele frequency in samples
+    - rf_tp_probability # Random forest prediction probability for a site being a true variant
+    - FS # Phred-scaled p-value of Fisher's exact test for strand bias
+    - InbreedingCoeff # Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation
+    - MQ # Root mean square of the mapping quality of reads across all samples
+    - MQRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference read mapping qualities
+    - QD # Variant call confidence normalized by depth of sample reads supporting a variant
+    - ReadPosRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference read position bias
+    - SOR # Strand bias estimated by the symmetric odds ratio test
+    - BaseQRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference base qualities
+    - ClippingRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference number of hard clipped bases
+    - DP # Depth of informative coverage for each sample; reads with MQ=255 or with bad mates are filtered
+    - VQSLOD # Log-odds ratio of being a true variant versus being a false positive under the trained VQSR Gaussian mixture model
+    - n_alt_alleles # Total number of alternate alleles observed at variant locus
+    - pab_max # Maximum p-value over callset for binomial test of observed allele balance for a heterozygous genotype
+    - dp_hist_alt_n_larger # Count of DP values falling above highest histogram bin edge
+    - dp_hist_all_n_larger # Count of DP values falling above highest histogram bin edge
+    - AC_nfe_seu # Alternate allele count for samples of Southern European ancestry
+    - AN_nfe_seu # Total number of alleles in samples of Southern European ancestry
+    - AF_nfe_seu # Alternate allele frequency in samples of Southern European ancestry
+    - nhomalt_nfe_seu # Count of homozygous individuals in samples of Southern European ancestry
+    - controls_AC_afr_male # Alternate allele count for male samples of African-American/African ancestry in the controls subset
+    - controls_AN_afr_male # Total number of alleles in male samples of African-American/African ancestry in the controls subset
+    - controls_AF_afr_male # Alternate allele frequency in male samples of African-American/African ancestry in the controls subset
+    - controls_nhomalt_afr_male # Count of homozygous individuals in male samples of African-American/African ancestry in the controls subset
+    - non_topmed_AC_amr # Alternate allele count for samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AN_amr # Total number of alleles in samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AF_amr # Alternate allele frequency in samples of Latino ancestry in the non_topmed subset
+    - non_topmed_nhomalt_amr # Count of homozygous individuals in samples of Latino ancestry in the non_topmed subset
+    - AC_raw # Alternate allele count for samples
+    - AN_raw # Total number of alleles in samples
+    - AF_raw # Alternate allele frequency in samples
+    - nhomalt_raw # Count of homozygous individuals in samples
+    - AC_fin_female # Alternate allele count for female samples of Finnish ancestry
+    - AN_fin_female # Total number of alleles in female samples of Finnish ancestry
+    - AF_fin_female # Alternate allele frequency in female samples of Finnish ancestry
+    - nhomalt_fin_female # Count of homozygous individuals in female samples of Finnish ancestry
+    - non_neuro_AC_asj_female # Alternate allele count for female samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AN_asj_female # Total number of alleles in female samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AF_asj_female # Alternate allele frequency in female samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_asj_female # Count of homozygous individuals in female samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AC_afr_male # Alternate allele count for male samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AN_afr_male # Total number of alleles in male samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AF_afr_male # Alternate allele frequency in male samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_nhomalt_afr_male # Count of homozygous individuals in male samples of African-American/African ancestry in the non_neuro subset
+    - AC_afr_male # Alternate allele count for male samples of African-American/African ancestry
+    - AN_afr_male # Total number of alleles in male samples of African-American/African ancestry
+    - AF_afr_male # Alternate allele frequency in male samples of African-American/African ancestry
+    - nhomalt_afr_male # Count of homozygous individuals in male samples of African-American/African ancestry
+    - AC_afr # Alternate allele count for samples of African-American/African ancestry
+    - AN_afr # Total number of alleles in samples of African-American/African ancestry
+    - AF_afr # Alternate allele frequency in samples of African-American/African ancestry
+    - nhomalt_afr # Count of homozygous individuals in samples of African-American/African ancestry
+    - non_neuro_AC_afr_female # Alternate allele count for female samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AN_afr_female # Total number of alleles in female samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AF_afr_female # Alternate allele frequency in female samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_nhomalt_afr_female # Count of homozygous individuals in female samples of African-American/African ancestry in the non_neuro subset
+    - non_topmed_AC_amr_female # Alternate allele count for female samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AN_amr_female # Total number of alleles in female samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AF_amr_female # Alternate allele frequency in female samples of Latino ancestry in the non_topmed subset
+    - non_topmed_nhomalt_amr_female # Count of homozygous individuals in female samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AC_oth_female # Alternate allele count for female samples of Other ancestry in the non_topmed subset
+    - non_topmed_AN_oth_female # Total number of alleles in female samples of Other ancestry in the non_topmed subset
+    - non_topmed_AF_oth_female # Alternate allele frequency in female samples of Other ancestry in the non_topmed subset
+    - non_topmed_nhomalt_oth_female # Count of homozygous individuals in female samples of Other ancestry in the non_topmed subset
+    - AC_eas_female # Alternate allele count for female samples of East Asian ancestry
+    - AN_eas_female # Total number of alleles in female samples of East Asian ancestry
+    - AF_eas_female # Alternate allele frequency in female samples of East Asian ancestry
+    - nhomalt_eas_female # Count of homozygous individuals in female samples of East Asian ancestry
+    - AC_afr_female # Alternate allele count for female samples of African-American/African ancestry
+    - AN_afr_female # Total number of alleles in female samples of African-American/African ancestry
+    - AF_afr_female # Alternate allele frequency in female samples of African-American/African ancestry
+    - nhomalt_afr_female # Count of homozygous individuals in female samples of African-American/African ancestry
+    - non_neuro_AC_female # Alternate allele count for female samples in the non_neuro subset
+    - non_neuro_AN_female # Total number of alleles in female samples in the non_neuro subset
+    - non_neuro_AF_female # Alternate allele frequency in female samples in the non_neuro subset
+    - non_neuro_nhomalt_female # Count of homozygous individuals in female samples in the non_neuro subset
+    - controls_AC_afr # Alternate allele count for samples of African-American/African ancestry in the controls subset
+    - controls_AN_afr # Total number of alleles in samples of African-American/African ancestry in the controls subset
+    - controls_AF_afr # Alternate allele frequency in samples of African-American/African ancestry in the controls subset
+    - controls_nhomalt_afr # Count of homozygous individuals in samples of African-American/African ancestry in the controls subset
+    - AC_nfe_onf # Alternate allele count for samples of Other Non-Finnish European ancestry
+    - AN_nfe_onf # Total number of alleles in samples of Other Non-Finnish European ancestry
+    - AF_nfe_onf # Alternate allele frequency in samples of Other Non-Finnish European ancestry
+    - nhomalt_nfe_onf # Count of homozygous individuals in samples of Other Non-Finnish European ancestry
+    - controls_AC_fin_male # Alternate allele count for male samples of Finnish ancestry in the controls subset
+    - controls_AN_fin_male # Total number of alleles in male samples of Finnish ancestry in the controls subset
+    - controls_AF_fin_male # Alternate allele frequency in male samples of Finnish ancestry in the controls subset
+    - controls_nhomalt_fin_male # Count of homozygous individuals in male samples of Finnish ancestry in the controls subset
+    - non_neuro_AC_nfe_nwe # Alternate allele count for samples of North-Western European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_nwe # Total number of alleles in samples of North-Western European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_nwe # Alternate allele frequency in samples of North-Western European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_nwe # Count of homozygous individuals in samples of North-Western European ancestry in the non_neuro subset
+    - AC_fin_male # Alternate allele count for male samples of Finnish ancestry
+    - AN_fin_male # Total number of alleles in male samples of Finnish ancestry
+    - AF_fin_male # Alternate allele frequency in male samples of Finnish ancestry
+    - nhomalt_fin_male # Count of homozygous individuals in male samples of Finnish ancestry
+    - AC_nfe_female # Alternate allele count for female samples of Non-Finnish European ancestry
+    - AN_nfe_female # Total number of alleles in female samples of Non-Finnish European ancestry
+    - AF_nfe_female # Alternate allele frequency in female samples of Non-Finnish European ancestry
+    - nhomalt_nfe_female # Count of homozygous individuals in female samples of Non-Finnish European ancestry
+    - AC_amr # Alternate allele count for samples of Latino ancestry
+    - AN_amr # Total number of alleles in samples of Latino ancestry
+    - AF_amr # Alternate allele frequency in samples of Latino ancestry
+    - nhomalt_amr # Count of homozygous individuals in samples of Latino ancestry
+    - non_topmed_AC_nfe_male # Alternate allele count for male samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_male # Total number of alleles in male samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_male # Alternate allele frequency in male samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_male # Count of homozygous individuals in male samples of Non-Finnish European ancestry in the non_topmed subset
+    - AC_eas # Alternate allele count for samples of East Asian ancestry
+    - AN_eas # Total number of alleles in samples of East Asian ancestry
+    - AF_eas # Alternate allele frequency in samples of East Asian ancestry
+    - nhomalt_eas # Count of homozygous individuals in samples of East Asian ancestry
+    - nhomalt # Count of homozygous individuals in samples
+    - non_neuro_AC_nfe_female # Alternate allele count for female samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_female # Total number of alleles in female samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_female # Alternate allele frequency in female samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_female # Count of homozygous individuals in female samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AC_afr # Alternate allele count for samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AN_afr # Total number of alleles in samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_AF_afr # Alternate allele frequency in samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_nhomalt_afr # Count of homozygous individuals in samples of African-American/African ancestry in the non_neuro subset
+    - controls_AC_raw # Alternate allele count for samples in the controls subset
+    - controls_AN_raw # Total number of alleles in samples in the controls subset
+    - controls_AF_raw # Alternate allele frequency in samples in the controls subset
+    - controls_nhomalt_raw # Count of homozygous individuals in samples in the controls subset
+    - controls_AC_male # Alternate allele count for male samples in the controls subset
+    - controls_AN_male # Total number of alleles in male samples in the controls subset
+    - controls_AF_male # Alternate allele frequency in male samples in the controls subset
+    - controls_nhomalt_male # Count of homozygous individuals in male samples in the controls subset
+    - non_topmed_AC_male # Alternate allele count for male samples in the non_topmed subset
+    - non_topmed_AN_male # Total number of alleles in male samples in the non_topmed subset
+    - non_topmed_AF_male # Alternate allele frequency in male samples in the non_topmed subset
+    - non_topmed_nhomalt_male # Count of homozygous individuals in male samples in the non_topmed subset
+    - controls_AC_nfe_female # Alternate allele count for female samples of Non-Finnish European ancestry in the controls subset
+    - controls_AN_nfe_female # Total number of alleles in female samples of Non-Finnish European ancestry in the controls subset
+    - controls_AF_nfe_female # Alternate allele frequency in female samples of Non-Finnish European ancestry in the controls subset
+    - controls_nhomalt_nfe_female # Count of homozygous individuals in female samples of Non-Finnish European ancestry in the controls subset
+    - non_neuro_AC_amr # Alternate allele count for samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AN_amr # Total number of alleles in samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AF_amr # Alternate allele frequency in samples of Latino ancestry in the non_neuro subset
+    - non_neuro_nhomalt_amr # Count of homozygous individuals in samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AC_eas_female # Alternate allele count for female samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AN_eas_female # Total number of alleles in female samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AF_eas_female # Alternate allele frequency in female samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_nhomalt_eas_female # Count of homozygous individuals in female samples of East Asian ancestry in the non_neuro subset
+    - AC_asj_male # Alternate allele count for male samples of Ashkenazi Jewish ancestry
+    - AN_asj_male # Total number of alleles in male samples of Ashkenazi Jewish ancestry
+    - AF_asj_male # Alternate allele frequency in male samples of Ashkenazi Jewish ancestry
+    - nhomalt_asj_male # Count of homozygous individuals in male samples of Ashkenazi Jewish ancestry
+    - controls_AC_nfe_male # Alternate allele count for male samples of Non-Finnish European ancestry in the controls subset
+    - controls_AN_nfe_male # Total number of alleles in male samples of Non-Finnish European ancestry in the controls subset
+    - controls_AF_nfe_male # Alternate allele frequency in male samples of Non-Finnish European ancestry in the controls subset
+    - controls_nhomalt_nfe_male # Count of homozygous individuals in male samples of Non-Finnish European ancestry in the controls subset
+    - non_neuro_AC_fin # Alternate allele count for samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AN_fin # Total number of alleles in samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AF_fin # Alternate allele frequency in samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_fin # Count of homozygous individuals in samples of Finnish ancestry in the non_neuro subset
+    - AC_oth_female # Alternate allele count for female samples of Other ancestry
+    - AN_oth_female # Total number of alleles in female samples of Other ancestry
+    - AF_oth_female # Alternate allele frequency in female samples of Other ancestry
+    - nhomalt_oth_female # Count of homozygous individuals in female samples of Other ancestry
+    - controls_AC_nfe # Alternate allele count for samples of Non-Finnish European ancestry in the controls subset
+    - controls_AN_nfe # Total number of alleles in samples of Non-Finnish European ancestry in the controls subset
+    - controls_AF_nfe # Alternate allele frequency in samples of Non-Finnish European ancestry in the controls subset
+    - controls_nhomalt_nfe # Count of homozygous individuals in samples of Non-Finnish European ancestry in the controls subset
+    - controls_AC_oth_female # Alternate allele count for female samples of Other ancestry in the controls subset
+    - controls_AN_oth_female # Total number of alleles in female samples of Other ancestry in the controls subset
+    - controls_AF_oth_female # Alternate allele frequency in female samples of Other ancestry in the controls subset
+    - controls_nhomalt_oth_female # Count of homozygous individuals in female samples of Other ancestry in the controls subset
+    - controls_AC_asj # Alternate allele count for samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AN_asj # Total number of alleles in samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_nhomalt_asj # Count of homozygous individuals in samples of Ashkenazi Jewish ancestry in the controls subset
+    - non_neuro_AC_amr_male # Alternate allele count for male samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AN_amr_male # Total number of alleles in male samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AF_amr_male # Alternate allele frequency in male samples of Latino ancestry in the non_neuro subset
+    - non_neuro_nhomalt_amr_male # Count of homozygous individuals in male samples of Latino ancestry in the non_neuro subset
+    - controls_AC_nfe_nwe # Alternate allele count for samples of North-Western European ancestry in the controls subset
+    - controls_AN_nfe_nwe # Total number of alleles in samples of North-Western European ancestry in the controls subset
+    - controls_AF_nfe_nwe # Alternate allele frequency in samples of North-Western European ancestry in the controls subset
+    - controls_nhomalt_nfe_nwe # Count of homozygous individuals in samples of North-Western European ancestry in the controls subset
+    - AC_nfe_nwe # Alternate allele count for samples of North-Western European ancestry
+    - AN_nfe_nwe # Total number of alleles in samples of North-Western European ancestry
+    - AF_nfe_nwe # Alternate allele frequency in samples of North-Western European ancestry
+    - nhomalt_nfe_nwe # Count of homozygous individuals in samples of North-Western European ancestry
+    - controls_AC_nfe_seu # Alternate allele count for samples of Southern European ancestry in the controls subset
+    - controls_AN_nfe_seu # Total number of alleles in samples of Southern European ancestry in the controls subset
+    - controls_AF_nfe_seu # Alternate allele frequency in samples of Southern European ancestry in the controls subset
+    - controls_nhomalt_nfe_seu # Count of homozygous individuals in samples of Southern European ancestry in the controls subset
+    - non_neuro_AC_amr_female # Alternate allele count for female samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AN_amr_female # Total number of alleles in female samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AF_amr_female # Alternate allele frequency in female samples of Latino ancestry in the non_neuro subset
+    - non_neuro_nhomalt_amr_female # Count of homozygous individuals in female samples of Latino ancestry in the non_neuro subset
+    - non_neuro_AC_nfe_onf # Alternate allele count for samples of Other Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_onf # Total number of alleles in samples of Other Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_onf # Alternate allele frequency in samples of Other Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_onf # Count of homozygous individuals in samples of Other Non-Finnish European ancestry in the non_neuro subset
+    - non_topmed_AC_eas_male # Alternate allele count for male samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AN_eas_male # Total number of alleles in male samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AF_eas_male # Alternate allele frequency in male samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_nhomalt_eas_male # Count of homozygous individuals in male samples of East Asian ancestry in the non_topmed subset
+    - controls_AC_amr_female # Alternate allele count for female samples of Latino ancestry in the controls subset
+    - controls_AN_amr_female # Total number of alleles in female samples of Latino ancestry in the controls subset
+    - controls_AF_amr_female # Alternate allele frequency in female samples of Latino ancestry in the controls subset
+    - controls_nhomalt_amr_female # Count of homozygous individuals in female samples of Latino ancestry in the controls subset
+    - non_neuro_AC_fin_male # Alternate allele count for male samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AN_fin_male # Total number of alleles in male samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AF_fin_male # Alternate allele frequency in male samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_fin_male # Count of homozygous individuals in male samples of Finnish ancestry in the non_neuro subset
+    - AC_female # Alternate allele count for female samples
+    - AN_female # Total number of alleles in female samples
+    - AF_female # Alternate allele frequency in female samples
+    - nhomalt_female # Count of homozygous individuals in female samples
+    - non_neuro_AC_oth_male # Alternate allele count for male samples of Other ancestry in the non_neuro subset
+    - non_neuro_AN_oth_male # Total number of alleles in male samples of Other ancestry in the non_neuro subset
+    - non_neuro_AF_oth_male # Alternate allele frequency in male samples of Other ancestry in the non_neuro subset
+    - non_neuro_nhomalt_oth_male # Count of homozygous individuals in male samples of Other ancestry in the non_neuro subset
+    - non_topmed_AC_nfe_est # Alternate allele count for samples of Estonian ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_est # Total number of alleles in samples of Estonian ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_est # Alternate allele frequency in samples of Estonian ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_est # Count of homozygous individuals in samples of Estonian ancestry in the non_topmed subset
+    - non_topmed_AC_nfe_nwe # Alternate allele count for samples of North-Western European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_nwe # Total number of alleles in samples of North-Western European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_nwe # Alternate allele frequency in samples of North-Western European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_nwe # Count of homozygous individuals in samples of North-Western European ancestry in the non_topmed subset
+    - non_topmed_AC_amr_male # Alternate allele count for male samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AN_amr_male # Total number of alleles in male samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AF_amr_male # Alternate allele frequency in male samples of Latino ancestry in the non_topmed subset
+    - non_topmed_nhomalt_amr_male # Count of homozygous individuals in male samples of Latino ancestry in the non_topmed subset
+    - non_topmed_AC_nfe_onf # Alternate allele count for samples of Other Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_onf # Total number of alleles in samples of Other Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_onf # Alternate allele frequency in samples of Other Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_onf # Count of homozygous individuals in samples of Other Non-Finnish European ancestry in the non_topmed subset
+    - controls_AC_eas_male # Alternate allele count for male samples of East Asian ancestry in the controls subset
+    - controls_AN_eas_male # Total number of alleles in male samples of East Asian ancestry in the controls subset
+    - controls_AF_eas_male # Alternate allele frequency in male samples of East Asian ancestry in the controls subset
+    - controls_nhomalt_eas_male # Count of homozygous individuals in male samples of East Asian ancestry in the controls subset
+    - controls_AC_oth_male # Alternate allele count for male samples of Other ancestry in the controls subset
+    - controls_AN_oth_male # Total number of alleles in male samples of Other ancestry in the controls subset
+    - controls_AF_oth_male # Alternate allele frequency in male samples of Other ancestry in the controls subset
+    - controls_nhomalt_oth_male # Count of homozygous individuals in male samples of Other ancestry in the controls subset
+    - non_topmed_AC # Alternate allele count for samples in the non_topmed subset
+    - non_topmed_AN # Total number of alleles in samples in the non_topmed subset
+    - non_topmed_AF # Alternate allele frequency in samples in the non_topmed subset
+    - non_topmed_nhomalt # Count of homozygous individuals in samples in the non_topmed subset
+    - controls_AC_fin # Alternate allele count for samples of Finnish ancestry in the controls subset
+    - controls_AN_fin # Total number of alleles in samples of Finnish ancestry in the controls subset
+    - controls_AF_fin # Alternate allele frequency in samples of Finnish ancestry in the controls subset
+    - controls_nhomalt_fin # Count of homozygous individuals in samples of Finnish ancestry in the controls subset
+    - non_neuro_AC_nfe # Alternate allele count for samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe # Total number of alleles in samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe # Alternate allele frequency in samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe # Count of homozygous individuals in samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AC_fin_female # Alternate allele count for female samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AN_fin_female # Total number of alleles in female samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_AF_fin_female # Alternate allele frequency in female samples of Finnish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_fin_female # Count of homozygous individuals in female samples of Finnish ancestry in the non_neuro subset
+    - non_topmed_AC_nfe_seu # Alternate allele count for samples of Southern European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_seu # Total number of alleles in samples of Southern European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_seu # Alternate allele frequency in samples of Southern European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_seu # Count of homozygous individuals in samples of Southern European ancestry in the non_topmed subset
+    - controls_AC_eas_female # Alternate allele count for female samples of East Asian ancestry in the controls subset
+    - controls_AN_eas_female # Total number of alleles in female samples of East Asian ancestry in the controls subset
+    - controls_AF_eas_female # Alternate allele frequency in female samples of East Asian ancestry in the controls subset
+    - controls_nhomalt_eas_female # Count of homozygous individuals in female samples of East Asian ancestry in the controls subset
+    - non_topmed_AC_asj # Alternate allele count for samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AN_asj # Total number of alleles in samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_asj # Count of homozygous individuals in samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - controls_AC_nfe_onf # Alternate allele count for samples of Other Non-Finnish European ancestry in the controls subset
+    - controls_AN_nfe_onf # Total number of alleles in samples of Other Non-Finnish European ancestry in the controls subset
+    - controls_AF_nfe_onf # Alternate allele frequency in samples of Other Non-Finnish European ancestry in the controls subset
+    - controls_nhomalt_nfe_onf # Count of homozygous individuals in samples of Other Non-Finnish European ancestry in the controls subset
+    - non_neuro_AC # Alternate allele count for samples in the non_neuro subset
+    - non_neuro_AN # Total number of alleles in samples in the non_neuro subset
+    - non_neuro_AF # Alternate allele frequency in samples in the non_neuro subset
+    - non_neuro_nhomalt # Count of homozygous individuals in samples in the non_neuro subset
+    - non_topmed_AC_nfe # Alternate allele count for samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe # Total number of alleles in samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe # Alternate allele frequency in samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe # Count of homozygous individuals in samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AC_raw # Alternate allele count for samples in the non_topmed subset
+    - non_topmed_AN_raw # Total number of alleles in samples in the non_topmed subset
+    - non_topmed_AF_raw # Alternate allele frequency in samples in the non_topmed subset
+    - non_topmed_nhomalt_raw # Count of homozygous individuals in samples in the non_topmed subset
+    - non_neuro_AC_nfe_est # Alternate allele count for samples of Estonian ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_est # Total number of alleles in samples of Estonian ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_est # Alternate allele frequency in samples of Estonian ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_est # Count of homozygous individuals in samples of Estonian ancestry in the non_neuro subset
+    - non_topmed_AC_oth_male # Alternate allele count for male samples of Other ancestry in the non_topmed subset
+    - non_topmed_AN_oth_male # Total number of alleles in male samples of Other ancestry in the non_topmed subset
+    - non_topmed_AF_oth_male # Alternate allele frequency in male samples of Other ancestry in the non_topmed subset
+    - non_topmed_nhomalt_oth_male # Count of homozygous individuals in male samples of Other ancestry in the non_topmed subset
+    - AC_nfe_est # Alternate allele count for samples of Estonian ancestry
+    - AN_nfe_est # Total number of alleles in samples of Estonian ancestry
+    - AF_nfe_est # Alternate allele frequency in samples of Estonian ancestry
+    - nhomalt_nfe_est # Count of homozygous individuals in samples of Estonian ancestry
+    - non_topmed_AC_afr_male # Alternate allele count for male samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AN_afr_male # Total number of alleles in male samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AF_afr_male # Alternate allele frequency in male samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_nhomalt_afr_male # Count of homozygous individuals in male samples of African-American/African ancestry in the non_topmed subset
+    - AC_eas_male # Alternate allele count for male samples of East Asian ancestry
+    - AN_eas_male # Total number of alleles in male samples of East Asian ancestry
+    - AF_eas_male # Alternate allele frequency in male samples of East Asian ancestry
+    - nhomalt_eas_male # Count of homozygous individuals in male samples of East Asian ancestry
+    - controls_AC_eas # Alternate allele count for samples of East Asian ancestry in the controls subset
+    - controls_AN_eas # Total number of alleles in samples of East Asian ancestry in the controls subset
+    - controls_AF_eas # Alternate allele frequency in samples of East Asian ancestry in the controls subset
+    - controls_nhomalt_eas # Count of homozygous individuals in samples of East Asian ancestry in the controls subset
+    - non_neuro_AC_eas_male # Alternate allele count for male samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AN_eas_male # Total number of alleles in male samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AF_eas_male # Alternate allele frequency in male samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_nhomalt_eas_male # Count of homozygous individuals in male samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AC_asj_male # Alternate allele count for male samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AN_asj_male # Total number of alleles in male samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AF_asj_male # Alternate allele frequency in male samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_asj_male # Count of homozygous individuals in male samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - controls_AC_oth # Alternate allele count for samples of Other ancestry in the controls subset
+    - controls_AN_oth # Total number of alleles in samples of Other ancestry in the controls subset
+    - controls_AF_oth # Alternate allele frequency in samples of Other ancestry in the controls subset
+    - controls_nhomalt_oth # Count of homozygous individuals in samples of Other ancestry in the controls subset
+    - AC_nfe # Alternate allele count for samples of Non-Finnish European ancestry
+    - AN_nfe # Total number of alleles in samples of Non-Finnish European ancestry
+    - AF_nfe # Alternate allele frequency in samples of Non-Finnish European ancestry
+    - nhomalt_nfe # Count of homozygous individuals in samples of Non-Finnish European ancestry
+    - non_topmed_AC_female # Alternate allele count for female samples in the non_topmed subset
+    - non_topmed_AN_female # Total number of alleles in female samples in the non_topmed subset
+    - non_topmed_AF_female # Alternate allele frequency in female samples in the non_topmed subset
+    - non_topmed_nhomalt_female # Count of homozygous individuals in female samples in the non_topmed subset
+    - non_neuro_AC_asj # Alternate allele count for samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AN_asj # Total number of alleles in samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_neuro_nhomalt_asj # Count of homozygous individuals in samples of Ashkenazi Jewish ancestry in the non_neuro subset
+    - non_topmed_AC_eas_female # Alternate allele count for female samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AN_eas_female # Total number of alleles in female samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AF_eas_female # Alternate allele frequency in female samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_nhomalt_eas_female # Count of homozygous individuals in female samples of East Asian ancestry in the non_topmed subset
+    - non_neuro_AC_raw # Alternate allele count for samples in the non_neuro subset
+    - non_neuro_AN_raw # Total number of alleles in samples in the non_neuro subset
+    - non_neuro_AF_raw # Alternate allele frequency in samples in the non_neuro subset
+    - non_neuro_nhomalt_raw # Count of homozygous individuals in samples in the non_neuro subset
+    - non_topmed_AC_eas # Alternate allele count for samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AN_eas # Total number of alleles in samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AF_eas # Alternate allele frequency in samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_nhomalt_eas # Count of homozygous individuals in samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_AC_fin_male # Alternate allele count for male samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AN_fin_male # Total number of alleles in male samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AF_fin_male # Alternate allele frequency in male samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_fin_male # Count of homozygous individuals in male samples of Finnish ancestry in the non_topmed subset
+    - AC_fin # Alternate allele count for samples of Finnish ancestry
+    - AN_fin # Total number of alleles in samples of Finnish ancestry
+    - AF_fin # Alternate allele frequency in samples of Finnish ancestry
+    - nhomalt_fin # Count of homozygous individuals in samples of Finnish ancestry
+    - AC_nfe_male # Alternate allele count for male samples of Non-Finnish European ancestry
+    - AN_nfe_male # Total number of alleles in male samples of Non-Finnish European ancestry
+    - AF_nfe_male # Alternate allele frequency in male samples of Non-Finnish European ancestry
+    - nhomalt_nfe_male # Count of homozygous individuals in male samples of Non-Finnish European ancestry
+    - controls_AC_amr_male # Alternate allele count for male samples of Latino ancestry in the controls subset
+    - controls_AN_amr_male # Total number of alleles in male samples of Latino ancestry in the controls subset
+    - controls_AF_amr_male # Alternate allele frequency in male samples of Latino ancestry in the controls subset
+    - controls_nhomalt_amr_male # Count of homozygous individuals in male samples of Latino ancestry in the controls subset
+    - controls_AC_afr_female # Alternate allele count for female samples of African-American/African ancestry in the controls subset
+    - controls_AN_afr_female # Total number of alleles in female samples of African-American/African ancestry in the controls subset
+    - controls_AF_afr_female # Alternate allele frequency in female samples of African-American/African ancestry in the controls subset
+    - controls_nhomalt_afr_female # Count of homozygous individuals in female samples of African-American/African ancestry in the controls subset
+    - controls_AC_amr # Alternate allele count for samples of Latino ancestry in the controls subset
+    - controls_AN_amr # Total number of alleles in samples of Latino ancestry in the controls subset
+    - controls_AF_amr # Alternate allele frequency in samples of Latino ancestry in the controls subset
+    - controls_nhomalt_amr # Count of homozygous individuals in samples of Latino ancestry in the controls subset
+    - AC_asj_female # Alternate allele count for female samples of Ashkenazi Jewish ancestry
+    - AN_asj_female # Total number of alleles in female samples of Ashkenazi Jewish ancestry
+    - AF_asj_female # Alternate allele frequency in female samples of Ashkenazi Jewish ancestry
+    - nhomalt_asj_female # Count of homozygous individuals in female samples of Ashkenazi Jewish ancestry
+    - non_neuro_AC_eas # Alternate allele count for samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AN_eas # Total number of alleles in samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AF_eas # Alternate allele frequency in samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_nhomalt_eas # Count of homozygous individuals in samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_AC_male # Alternate allele count for male samples in the non_neuro subset
+    - non_neuro_AN_male # Total number of alleles in male samples in the non_neuro subset
+    - non_neuro_AF_male # Alternate allele frequency in male samples in the non_neuro subset
+    - non_neuro_nhomalt_male # Count of homozygous individuals in male samples in the non_neuro subset
+    - AC_asj # Alternate allele count for samples of Ashkenazi Jewish ancestry
+    - AN_asj # Total number of alleles in samples of Ashkenazi Jewish ancestry
+    - AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry
+    - nhomalt_asj # Count of homozygous individuals in samples of Ashkenazi Jewish ancestry
+    - controls_AC_nfe_est # Alternate allele count for samples of Estonian ancestry in the controls subset
+    - controls_AN_nfe_est # Total number of alleles in samples of Estonian ancestry in the controls subset
+    - controls_AF_nfe_est # Alternate allele frequency in samples of Estonian ancestry in the controls subset
+    - controls_nhomalt_nfe_est # Count of homozygous individuals in samples of Estonian ancestry in the controls subset
+    - non_topmed_AC_asj_female # Alternate allele count for female samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AN_asj_female # Total number of alleles in female samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AF_asj_female # Alternate allele frequency in female samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_asj_female # Count of homozygous individuals in female samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AC_oth # Alternate allele count for samples of Other ancestry in the non_topmed subset
+    - non_topmed_AN_oth # Total number of alleles in samples of Other ancestry in the non_topmed subset
+    - non_topmed_AF_oth # Alternate allele frequency in samples of Other ancestry in the non_topmed subset
+    - non_topmed_nhomalt_oth # Count of homozygous individuals in samples of Other ancestry in the non_topmed subset
+    - non_topmed_AC_fin_female # Alternate allele count for female samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AN_fin_female # Total number of alleles in female samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AF_fin_female # Alternate allele frequency in female samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_fin_female # Count of homozygous individuals in female samples of Finnish ancestry in the non_topmed subset
+    - AC_oth # Alternate allele count for samples of Other ancestry
+    - AN_oth # Total number of alleles in samples of Other ancestry
+    - AF_oth # Alternate allele frequency in samples of Other ancestry
+    - nhomalt_oth # Count of homozygous individuals in samples of Other ancestry
+    - non_neuro_AC_nfe_male # Alternate allele count for male samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_male # Total number of alleles in male samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_male # Alternate allele frequency in male samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_male # Count of homozygous individuals in male samples of Non-Finnish European ancestry in the non_neuro subset
+    - controls_AC_female # Alternate allele count for female samples in the controls subset
+    - controls_AN_female # Total number of alleles in female samples in the controls subset
+    - controls_AF_female # Alternate allele frequency in female samples in the controls subset
+    - controls_nhomalt_female # Count of homozygous individuals in female samples in the controls subset
+    - non_topmed_AC_fin # Alternate allele count for samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AN_fin # Total number of alleles in samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AF_fin # Alternate allele frequency in samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_fin # Count of homozygous individuals in samples of Finnish ancestry in the non_topmed subset
+    - non_topmed_AC_nfe_female # Alternate allele count for female samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AN_nfe_female # Total number of alleles in female samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_AF_nfe_female # Alternate allele frequency in female samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_nhomalt_nfe_female # Count of homozygous individuals in female samples of Non-Finnish European ancestry in the non_topmed subset
+    - controls_AC_asj_male # Alternate allele count for male samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AN_asj_male # Total number of alleles in male samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AF_asj_male # Alternate allele frequency in male samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_nhomalt_asj_male # Count of homozygous individuals in male samples of Ashkenazi Jewish ancestry in the controls subset
+    - non_topmed_AC_asj_male # Alternate allele count for male samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AN_asj_male # Total number of alleles in male samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_AF_asj_male # Alternate allele frequency in male samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_topmed_nhomalt_asj_male # Count of homozygous individuals in male samples of Ashkenazi Jewish ancestry in the non_topmed subset
+    - non_neuro_AC_oth # Alternate allele count for samples of Other ancestry in the non_neuro subset
+    - non_neuro_AN_oth # Total number of alleles in samples of Other ancestry in the non_neuro subset
+    - non_neuro_AF_oth # Alternate allele frequency in samples of Other ancestry in the non_neuro subset
+    - non_neuro_nhomalt_oth # Count of homozygous individuals in samples of Other ancestry in the non_neuro subset
+    - AC_male # Alternate allele count for male samples
+    - AN_male # Total number of alleles in male samples
+    - AF_male # Alternate allele frequency in male samples
+    - nhomalt_male # Count of homozygous individuals in male samples
+    - controls_AC_fin_female # Alternate allele count for female samples of Finnish ancestry in the controls subset
+    - controls_AN_fin_female # Total number of alleles in female samples of Finnish ancestry in the controls subset
+    - controls_AF_fin_female # Alternate allele frequency in female samples of Finnish ancestry in the controls subset
+    - controls_nhomalt_fin_female # Count of homozygous individuals in female samples of Finnish ancestry in the controls subset
+    - controls_AC_asj_female # Alternate allele count for female samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AN_asj_female # Total number of alleles in female samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_AF_asj_female # Alternate allele frequency in female samples of Ashkenazi Jewish ancestry in the controls subset
+    - controls_nhomalt_asj_female # Count of homozygous individuals in female samples of Ashkenazi Jewish ancestry in the controls subset
+    - AC_amr_male # Alternate allele count for male samples of Latino ancestry
+    - AN_amr_male # Total number of alleles in male samples of Latino ancestry
+    - AF_amr_male # Alternate allele frequency in male samples of Latino ancestry
+    - nhomalt_amr_male # Count of homozygous individuals in male samples of Latino ancestry
+    - AC_amr_female # Alternate allele count for female samples of Latino ancestry
+    - AN_amr_female # Total number of alleles in female samples of Latino ancestry
+    - AF_amr_female # Alternate allele frequency in female samples of Latino ancestry
+    - nhomalt_amr_female # Count of homozygous individuals in female samples of Latino ancestry
+    - AC_oth_male # Alternate allele count for male samples of Other ancestry
+    - AN_oth_male # Total number of alleles in male samples of Other ancestry
+    - AF_oth_male # Alternate allele frequency in male samples of Other ancestry
+    - nhomalt_oth_male # Count of homozygous individuals in male samples of Other ancestry
+    - non_neuro_AC_nfe_seu # Alternate allele count for samples of Southern European ancestry in the non_neuro subset
+    - non_neuro_AN_nfe_seu # Total number of alleles in samples of Southern European ancestry in the non_neuro subset
+    - non_neuro_AF_nfe_seu # Alternate allele frequency in samples of Southern European ancestry in the non_neuro subset
+    - non_neuro_nhomalt_nfe_seu # Count of homozygous individuals in samples of Southern European ancestry in the non_neuro subset
+    - non_topmed_AC_afr_female # Alternate allele count for female samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AN_afr_female # Total number of alleles in female samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AF_afr_female # Alternate allele frequency in female samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_nhomalt_afr_female # Count of homozygous individuals in female samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AC_afr # Alternate allele count for samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AN_afr # Total number of alleles in samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_AF_afr # Alternate allele frequency in samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_nhomalt_afr # Count of homozygous individuals in samples of African-American/African ancestry in the non_topmed subset
+    - controls_AC # Alternate allele count for samples in the controls subset
+    - controls_AN # Total number of alleles in samples in the controls subset
+    - controls_AF # Alternate allele frequency in samples in the controls subset
+    - controls_nhomalt # Count of homozygous individuals in samples in the controls subset
+    - non_neuro_AC_oth_female # Alternate allele count for female samples of Other ancestry in the non_neuro subset
+    - non_neuro_AN_oth_female # Total number of alleles in female samples of Other ancestry in the non_neuro subset
+    - non_neuro_AF_oth_female # Alternate allele frequency in female samples of Other ancestry in the non_neuro subset
+    - non_neuro_nhomalt_oth_female # Count of homozygous individuals in female samples of Other ancestry in the non_neuro subset
+    - non_topmed_faf95_amr # Filtering allele frequency (using Poisson 95% CI) for samples of Latino ancestry in the non_topmed subset
+    - non_topmed_faf99_amr # Filtering allele frequency (using Poisson 99% CI) for samples of Latino ancestry in the non_topmed subset
+    - faf95_afr # Filtering allele frequency (using Poisson 95% CI) for samples of African-American/African ancestry
+    - faf99_afr # Filtering allele frequency (using Poisson 99% CI) for samples of African-American/African ancestry
+    - controls_faf95_afr # Filtering allele frequency (using Poisson 95% CI) for samples of African-American/African ancestry in the controls subset
+    - controls_faf99_afr # Filtering allele frequency (using Poisson 99% CI) for samples of African-American/African ancestry in the controls subset
+    - faf95_amr # Filtering allele frequency (using Poisson 95% CI) for samples of Latino ancestry
+    - faf99_amr # Filtering allele frequency (using Poisson 99% CI) for samples of Latino ancestry
+    - faf95_eas # Filtering allele frequency (using Poisson 95% CI) for samples of East Asian ancestry
+    - faf99_eas # Filtering allele frequency (using Poisson 99% CI) for samples of East Asian ancestry
+    - faf95 # Filtering allele frequency (using Poisson 95% CI) for samples
+    - faf99 # Filtering allele frequency (using Poisson 99% CI) for samples
+    - non_neuro_faf95_afr # Filtering allele frequency (using Poisson 95% CI) for samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_faf99_afr # Filtering allele frequency (using Poisson 99% CI) for samples of African-American/African ancestry in the non_neuro subset
+    - non_neuro_faf95_amr # Filtering allele frequency (using Poisson 95% CI) for samples of Latino ancestry in the non_neuro subset
+    - non_neuro_faf99_amr # Filtering allele frequency (using Poisson 99% CI) for samples of Latino ancestry in the non_neuro subset
+    - controls_faf95_nfe # Filtering allele frequency (using Poisson 95% CI) for samples of Non-Finnish European ancestry in the controls subset
+    - controls_faf99_nfe # Filtering allele frequency (using Poisson 99% CI) for samples of Non-Finnish European ancestry in the controls subset
+    - non_topmed_faf95 # Filtering allele frequency (using Poisson 95% CI) for samples in the non_topmed subset
+    - non_topmed_faf99 # Filtering allele frequency (using Poisson 99% CI) for samples in the non_topmed subset
+    - non_neuro_faf95_nfe # Filtering allele frequency (using Poisson 95% CI) for samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_faf99_nfe # Filtering allele frequency (using Poisson 99% CI) for samples of Non-Finnish European ancestry in the non_neuro subset
+    - non_neuro_faf95 # Filtering allele frequency (using Poisson 95% CI) for samples in the non_neuro subset
+    - non_neuro_faf99 # Filtering allele frequency (using Poisson 99% CI) for samples in the non_neuro subset
+    - non_topmed_faf95_nfe # Filtering allele frequency (using Poisson 95% CI) for samples of Non-Finnish European ancestry in the non_topmed subset
+    - non_topmed_faf99_nfe # Filtering allele frequency (using Poisson 99% CI) for samples of Non-Finnish European ancestry in the non_topmed subset
+    - controls_faf95_eas # Filtering allele frequency (using Poisson 95% CI) for samples of East Asian ancestry in the controls subset
+    - controls_faf99_eas # Filtering allele frequency (using Poisson 99% CI) for samples of East Asian ancestry in the controls subset
+    - faf95_nfe # Filtering allele frequency (using Poisson 95% CI) for samples of Non-Finnish European ancestry
+    - faf99_nfe # Filtering allele frequency (using Poisson 99% CI) for samples of Non-Finnish European ancestry
+    - non_topmed_faf95_eas # Filtering allele frequency (using Poisson 95% CI) for samples of East Asian ancestry in the non_topmed subset
+    - non_topmed_faf99_eas # Filtering allele frequency (using Poisson 99% CI) for samples of East Asian ancestry in the non_topmed subset
+    - controls_faf95_amr # Filtering allele frequency (using Poisson 95% CI) for samples of Latino ancestry in the controls subset
+    - controls_faf99_amr # Filtering allele frequency (using Poisson 99% CI) for samples of Latino ancestry in the controls subset
+    - non_neuro_faf95_eas # Filtering allele frequency (using Poisson 95% CI) for samples of East Asian ancestry in the non_neuro subset
+    - non_neuro_faf99_eas # Filtering allele frequency (using Poisson 99% CI) for samples of East Asian ancestry in the non_neuro subset
+    - non_topmed_faf95_afr # Filtering allele frequency (using Poisson 95% CI) for samples of African-American/African ancestry in the non_topmed subset
+    - non_topmed_faf99_afr # Filtering allele frequency (using Poisson 99% CI) for samples of African-American/African ancestry in the non_topmed subset
+    - controls_faf95 # Filtering allele frequency (using Poisson 95% CI) for samples in the controls subset
+    - controls_faf99 # Filtering allele frequency (using Poisson 99% CI) for samples in the controls subset
+    - controls_AC_popmax # Allele count in the population with the maximum AF in the controls subset
+    - controls_AN_popmax # Total number of alleles in the population with the maximum AF in the controls subset
+    - controls_AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - controls_nhomalt_popmax # Count of homozygous individuals in the population with the maximum allele frequency in the controls subset
+    - AC_popmax # Allele count in the population with the maximum AF
+    - AN_popmax # Total number of alleles in the population with the maximum AF
+    - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - nhomalt_popmax # Count of homozygous individuals in the population with the maximum allele frequency
+    - age_hist_het_n_smaller # Count of age values falling below lowest histogram bin edge for heterozygous individuals
+    - age_hist_het_n_larger # Count of age values falling above highest histogram bin edge for heterozygous individuals
+    - age_hist_hom_n_smaller # Count of age values falling below lowest histogram bin edge for homozygous alternate individuals
+    - age_hist_hom_n_larger # Count of age values falling above highest histogram bin edge for homozygous alternate individuals
+    - non_neuro_AC_popmax # Allele count in the population with the maximum AF in the non_neuro subset
+    - non_neuro_AN_popmax # Total number of alleles in the population with the maximum AF in the non_neuro subset
+    - non_neuro_AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - non_neuro_nhomalt_popmax # Count of homozygous individuals in the population with the maximum allele frequency in the non_neuro subset
+    - non_topmed_AC_popmax # Allele count in the population with the maximum AF in the non_topmed subset
+    - non_topmed_AN_popmax # Total number of alleles in the population with the maximum AF in the non_topmed subset
+    - non_topmed_AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - non_topmed_nhomalt_popmax # Count of homozygous individuals in the population with the maximum allele frequency in the non_topmed subset
