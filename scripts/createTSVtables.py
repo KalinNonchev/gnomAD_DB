@@ -55,7 +55,6 @@ cpu_count
 # if running DIRECTLY from notebook, add module load i12g/bcftools; in the beginning of cmd
 def create_table(file, table_location):
     query_string = "%" + "\t%".join(columns) + "\n"
-    
     if not os.path.exists(table_location):
         cmd = f"bcftools query -f '{query_string}' {file} | gzip > {table_location}"
         p = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
