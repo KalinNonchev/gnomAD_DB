@@ -19,8 +19,6 @@ KERNEL = config['KERNEL']
 
 rule all:
     input:
-        script_locations + "/scripts/createTSVtables.ipynb",
-        script_locations + "/scripts/insertVariants.ipynb",
         script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
 
 # -------------------------- EXTRACT VARIANTS WITH MAF FROM gnomAD VCF --------------------------
@@ -38,6 +36,7 @@ rule extract_tables:
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
 rule insert_variants:
     input:
+        script_locations + "/scripts/createTSVtables.ipynb",
         notebook = "scripts/insertVariants.ipynb"
     output:
         notebook = script_locations + "/scripts/insertVariants.ipynb"
@@ -49,6 +48,7 @@ rule insert_variants:
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
 rule create_GettingStartedNB:
     input:
+        script_locations + "/scripts/insertVariants.ipynb",
         notebook = "scripts/GettingStartedwithGnomAD_DB.ipynb"
     output:
         notebook = script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
