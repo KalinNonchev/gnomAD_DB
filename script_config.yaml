@@ -1,6 +1,6 @@
-database_location: "test_out"
-gnomad_vcf_location: "data"
-tables_location: "test_out"
-script_locations: "test_out"
-genome: "Grch37"
+database_location: "test_out" # where to create the database, make sure you have space on your device.
+gnomad_vcf_location: "data" # where are your *.vcf.bgz located
+tables_location: "test_out" # where to store the preprocessed intermediate files, you can leave it like this 
+script_locations: "test_out" # where to store the scripts, where you can check the progress of your jobs, you can leave it like this
+genome: "Grch37" # genome version of the gnomAD vcf file (2.1.1 = Grch37, 3.1.1 = Grch38)
 KERNEL: "gnomad_db"
