@@ -1,9 +1,9 @@
-# gnomAD_MAF
+# gnomAD_VCF
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 56G for WGS v3.1.1 (about 760.000.000 variants), and allows scientists to look for minor allele frequencies of variants really fast (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 56G for WGS v3.1.1 (about 760.000.000 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
-It extracts from a gnomAD vcf the ["AF", "AF_afr", "AF_eas", "AF_fin", "AF_nfe", "AF_asj", "AF_oth", "AF_popmax"] columns. 
+It extracts from a gnomAD vcf about 42 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
 
 ###### The package works for all currently available gnomAD releases.(November 2021) 
 
@@ -41,6 +41,7 @@ database_location: "test_out" # where to create the database, make sure you have
 gnomad_vcf_location: "data" # where are your *.vcf.bgz located
 tables_location: "test_out" # where to store the preprocessed intermediate files, you can leave it like this 
 script_locations: "test_out" # where to store the scripts, where you can check the progress of your jobs, you can leave it like this
+genome: "Grch37" # genome version of the gnomAD vcf file (2.1.1 = Grch37, 3.1.1 = Grch38)
 ```
 
 Once this is done, run
@@ -77,11 +78,11 @@ from gnomad_db.database import gnomAD_DB
 ```python
 # pass dir
 database_location = "test_dir"
-db = gnomAD_DB(database_location)
+db = gnomAD_DB(database_location, genome="Grch37")
 ```
 
 3. Insert some test variants to run the examples below \
-**If you have downloaded the preprocessed sqlite3 files, you can skip this step as you already have variants**
+**If you have downloaded the preprocessed sqlite3 files, you can skip this step as you already have variants, make sure to have the correct genome version!**
 ```python
 # get some variants
 var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=db.columns, index_col=False)
@@ -101,21 +102,21 @@ dummy_var_df = pd.DataFrame({
     "alt": ["G", "T"]})
 
 # query from dataframe AF column
-db.get_maf_from_df(dummy_var_df, "AF")
+db.get_info_from_df(dummy_var_df, "AF")
 
 # query from dataframe AF and AF_popmax columns
-db.get_maf_from_df(dummy_var_df, "AF, AF_popmax")
+db.get_info_from_df(dummy_var_df, "AF, AF_popmax")
 
 # query from dataframe all columns
-db.get_maf_from_df(dummy_var_df, "*")
+db.get_info_from_df(dummy_var_df, "*")
 
 # query from string
-db.get_maf_from_str("21:9825790:C>T", "AF")
+db.get_info_from_str("21:9825790:C>T", "AF")
 ```
 
 5. You can query also intervals of minor allele frequencies
 ```python
-db.get_mafs_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="AF")
+db.get__for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="AF")
 ```
 
 For more information on how to use the package, look into GettingStartedwithGnomAD_DB.ipynb notebook!
