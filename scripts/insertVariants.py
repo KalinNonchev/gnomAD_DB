@@ -27,10 +27,11 @@ import glob
 # %% tags=["parameters"]
 database_location = "test_out"
 tables_location = "test_out"
+genome = "Grch38"
 
 # %%
 # initialize database
-db = gnomAD_DB(database_location)
+db = gnomAD_DB(database_location, genome=genome)
 
 # %%
 table_sep = "\t"

@@ -9,10 +9,11 @@ import yaml
 
 class gnomAD_DB:
     
-    def __init__(self, genodb_path, parallel=False, cpu_count=None):
+    def __init__(self, genodb_path, genome="Grch38", parallel=False, cpu_count=None):
         
         
         self.parallel = parallel
+        self.genome = genome
         
         if self.parallel:
             self.cpu_count = cpu_count if isinstance(cpu_count, int) else int(multiprocessing.cpu_count())
@@ -22,7 +23,7 @@ class gnomAD_DB:
         with open("gnomad_db/gnomad_columns.yaml") as f:
             columns = yaml.load(f, Loader=yaml.FullLoader)
         
-        self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns["value_columns"]
+        self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns[self.genome]
         self.dict_columns = columns
         
         if not os.path.exists(self.db_file):
@@ -37,7 +38,7 @@ class gnomAD_DB:
     
     
     def create_table(self):
-        value_columns = ",".join([f"{col} REAL" for col in self.dict_columns["value_columns"]])
+        value_columns = ",".join([f"{col} REAL" for col in self.dict_columns[self.genome]])
         sql_create = f"""
         CREATE TABLE gnomad_db (
             chrom TEXT,

@@ -14,14 +14,13 @@ database_location = config['database_location']
 gnomad_vcf_location = config['gnomad_vcf_location']
 tables_location = config['tables_location']
 script_locations = config['script_locations']
+genome = config['genome']
 KERNEL = config['KERNEL']
 
 
 rule all:
     input:
-        script_locations + "/scripts/createTSVtables.ipynb",
-        script_locations + "/scripts/insertVariants.ipynb",
-        script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
+        script_locations + "/scripts/insertVariants.ipynb"
 
 # -------------------------- EXTRACT VARIANTS WITH MAF FROM gnomAD VCF --------------------------
 rule extract_tables:
@@ -32,27 +31,29 @@ rule extract_tables:
     message:
         "Running createTSVtables notebook..."
     shell:
-        "papermill {input.notebook} {output.notebook} -p gnomad_vcf_location {gnomad_vcf_location} -p tables_location {tables_location} -k {KERNEL}"
+        "papermill {input.notebook} {output.notebook} -p gnomad_vcf_location {gnomad_vcf_location} -p tables_location {tables_location} -p genome {genome} -k {KERNEL}"
 
 
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
 rule insert_variants:
     input:
+        script_locations + "/scripts/createTSVtables.ipynb",
         notebook = "scripts/insertVariants.ipynb"
     output:
         notebook = script_locations + "/scripts/insertVariants.ipynb"
     message:
         "Running insertVariants notebook..."
     shell:
-        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -p tables_location {tables_location} -k {KERNEL}"
+        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -p tables_location {tables_location} -p genome {genome} -k {KERNEL}"
 
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
-rule create_GettingStartedNB:
-    input:
-        notebook = "scripts/GettingStartedwithGnomAD_DB.ipynb"
-    output:
-        notebook = script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
-    message:
-        "Running GettingStartedwithGnomAD_DB notebook.... Take a look here!"
-    shell:
-        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -k {KERNEL}"
+#rule create_GettingStartedNB:
+#    input:
+#        script_locations + "/scripts/insertVariants.ipynb",
+#        notebook = "scripts/GettingStartedwithGnomAD_DB.ipynb"
+#    output:
+#        notebook = script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
+#    message:
+#        "Running GettingStartedwithGnomAD_DB notebook.... Take a look here!"
+#    shell:
+#        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -k {KERNEL}"

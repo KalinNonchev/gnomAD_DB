@@ -1,5 +1,6 @@
 database_location: "test_out"
-gnomad_vcf_location: "data"
+gnomad_vcf_location: "test_out"
 tables_location: "test_out"
 script_locations: "test_out"
+genome: "Grch37"
 KERNEL: "gnomad_db"

@@ -8,10 +8,11 @@ import yaml
 def database():
     with open("script_config.yaml", 'r') as stream:
         config = yaml.safe_load(stream)
-       
+    
+    genome = config["genome"]
     database_location = config['database_location']
     
-    database = gnomAD_DB(database_location)
+    database = gnomAD_DB(database_location, genome=genome)
     
     var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
     
