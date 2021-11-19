@@ -20,7 +20,8 @@ KERNEL = config['KERNEL']
 
 rule all:
     input:
-        script_locations + "/scripts/insertVariants.ipynb"
+        script_locations + "/scripts/GettingStartedwithGnomAD_DB.ipynb"
+
 
 # -------------------------- EXTRACT VARIANTS WITH MAF FROM gnomAD VCF --------------------------
 rule extract_tables:
