@@ -1,7 +1,7 @@
 # gnomAD_VCF
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 48G for WGS v2.1.1 (261.942.336 variants) and 136G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 48G for WGS v2.1.1 (261.942.336 variants) and 136G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
 It extracts from a gnomAD vcf about 42 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
 
