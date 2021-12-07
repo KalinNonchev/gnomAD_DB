@@ -1,0 +1,46 @@
+base_columns:
+    - CHROM
+    - POS
+    - REF
+    - ALT
+    - FILTER
+Grch37:
+    - AC # Alternate allele count for samples
+    - AN # Total number of alleles in samples
+    - AF # Alternate allele frequency in samples
+    - rf_tp_probability # Random forest prediction probability for a site being a true variant
+    - MQ # Root mean square of the mapping quality of reads across all samples
+    - QD # Variant call confidence normalized by depth of sample reads supporting a variant
+    - ReadPosRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference read position bias
+    - DP # Depth of informative coverage for each sample; reads with MQ=255 or with bad mates are filtered
+    - VQSLOD # Log-odds ratio of being a true variant versus being a false positive under the trained VQSR Gaussian mixture model
+    - AC_popmax # Allele count in the population with the maximum AF
+    - AN_popmax # Total number of alleles in the population with the maximum AF
+    - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - AF_eas
+    - AF_oth
+    - AF_nfe
+    - AF_fin
+    - AF_afr
+    - AF_asj
+Grch38:
+    - AC # Alternate allele count for samples
+    - AN # Total number of alleles in samples
+    - AF # Alternate allele frequency in samples
+    - InbreedingCoeff # Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation
+    - MQ # Root mean square of the mapping quality of reads across all samples
+    - QD # Variant call confidence normalized by depth of sample reads supporting a variant
+    - ReadPosRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference read position bias
+#   - DP # Depth of informative coverage for each sample; reads with MQ=255 or with bad mates are filtered
+    - VarDP
+    - AS_VQSLOD
+#    - VQSLOD # Log-odds ratio of being a true variant versus being a false positive under the trained VQSR Gaussian mixture model
+    - AC_popmax # Allele count in the population with the maximum AF
+    - AN_popmax # Total number of alleles in the population with the maximum AF
+    - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
+    - AF_eas
+    - AF_oth
+    - AF_nfe
+    - AF_fin
+    - AF_afr
+    - AF_asj
