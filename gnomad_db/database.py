@@ -6,6 +6,7 @@ import multiprocessing
 from joblib import Parallel, delayed
 from . import utils
 import yaml
+import pkg_resources 
 
 class gnomAD_DB:
     
@@ -20,7 +21,9 @@ class gnomAD_DB:
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
         
-        with open("gnomad_db/gnomad_columns.yaml") as f:
+        columns_path = pkg_resources.resource_filename("gnomad_db", "pkgdata/gnomad_columns.yaml")
+        
+        with open(columns_path) as f:
             columns = yaml.load(f, Loader=yaml.FullLoader)
         
         self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns[self.genome]

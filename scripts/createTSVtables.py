@@ -29,7 +29,7 @@ tables_location = "test"
 genome = "Grch38"
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=[]
-with open("gnomad_db/gnomad_columns.yaml") as f:
+with open("gnomad_db/pkgdata/gnomad_columns.yaml") as f:
     columns = yaml.load(f, Loader=yaml.FullLoader)
 columns = columns["base_columns"] + columns[genome]
 print(len(columns))
