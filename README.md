@@ -4,6 +4,7 @@
 - more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml)
 - `get_maf_from_df` renamed to `get_info_from_df`
 - `get_maf_from_str` renamed to `get_info_from_str`
+- `genome`=["Grch37"|"Grch38"] argument have to be specified, when initializing the database
 
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
