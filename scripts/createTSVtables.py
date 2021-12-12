@@ -21,10 +21,19 @@ import pandas as pd
 from joblib import Parallel, delayed
 import multiprocessing
 import os
+import yaml
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=["parameters"]
 gnomad_vcf_location = "test"
 tables_location = "test"
+genome = "Grch38"
+
+# %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=[]
+with open("gnomad_db/pkgdata/gnomad_columns.yaml") as f:
+    columns = yaml.load(f, Loader=yaml.FullLoader)
+columns = columns["base_columns"] + columns[genome]
+print(len(columns))
+columns[:10]
 
 # %% papermill={"duration": 0.014665, "end_time": "2021-05-05T20:00:58.675108", "exception": false, "start_time": "2021-05-05T20:00:58.660443", "status": "completed"} tags=[]
 # get gnomAD files
@@ -46,10 +55,7 @@ cpu_count
 # extract needed columns
 # if running DIRECTLY from notebook, add module load i12g/bcftools; in the beginning of cmd
 def create_table(file, table_location):
-    if "chrM" in file:
-        query_string = "%CHROM\t%POS\t%REF\t%ALT\t%AF_hom\t%AF_het\n"
-    else:
-        query_string = "%CHROM\t%POS\t%REF\t%ALT\t%AF\t%AF_afr\t%AF_eas\t%AF_fin\t%AF_nfe\t%AF_asj\t%AF_oth\t%AF_popmax\n"
+    query_string = "%" + "\t%".join(columns) + "\n"
     if not os.path.exists(table_location):
         cmd = f"bcftools query -f '{query_string}' {file} | gzip > {table_location}"
         p = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
@@ -60,3 +66,5 @@ def create_table(file, table_location):
 # %% papermill={"duration": 0.329741, "end_time": "2021-05-05T20:00:59.051392", "exception": false, "start_time": "2021-05-05T20:00:58.721651", "status": "completed"} tags=[]
 # run bcftools in parallel
 Parallel(cpu_count)(delayed(create_table)(file, table_location) for file, table_location in tqdm(zip(files, tables_location)))
+
+# %%
