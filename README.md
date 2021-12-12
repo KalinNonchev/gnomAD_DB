@@ -1,24 +1,31 @@
 # gnomAD_VCF
+
+### NEW version (December 2021)
+- more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml)
+- `get_maf_from_df` renamed to `get_info_from_df`
+- `get_maf_from_str` renamed to `get_info_from_str`
+
+
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 48G for WGS v2.1.1 (261.942.336 variants) and 136G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 99G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
-It extracts from a gnomAD vcf about 42 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
+It extracts from a gnomAD vcf about 23 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
 
-###### The package works for all currently available gnomAD releases.(November 2021) 
+###### The package works for all currently available gnomAD releases.(January 2022) 
 
 ## 1. Download SQLite preprocessed files
 
 I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.1 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-gnomAD v3.1.1 (hg38, **759'302'267** variants) 59G zipped, 136G in total - https://zenodo.org/record/5045170/files/gnomad_db_v3.1.1.sqlite3.gz?download=1 \
-gnomAD v2.1.1 (hg19, **261'942'336** variants) 20G zipped, 48G in total - https://zenodo.org/record/5758555/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
+gnomAD v3.1.1 (hg38, **759'302'267** variants) 46.9G zipped, 99G in total - https://zenodo.org/record/5758663/files/gnomad_db_v3.1.1.sqlite3.gz?download=1 \
+gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
 
 You can download it as:
 
 ```python
 from gnomad_db.database import gnomAD_DB
-download_link = "https://zenodo.org/record/5045102/files/gnomad_db_v2.1.1.sqlite3.gz?download=1"
+download_link = "https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1"
 output_dir = "test_dir" # database_location
 gnomAD_DB.download_and_unzip(download_link, output_dir)
 ```
