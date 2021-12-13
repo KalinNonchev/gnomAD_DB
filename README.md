@@ -1,4 +1,4 @@
-# gnomAD_VCF
+# gnomAD_DB
 
 ### NEW version (December 2021)
 - more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml)
