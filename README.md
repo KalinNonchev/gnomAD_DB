@@ -1,7 +1,7 @@
 # gnomAD_VCF
 
 ### NEW version (December 2021)
-- more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml)
+- more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_DB/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml)
 - `get_maf_from_df` renamed to `get_info_from_df`
 - `get_maf_from_str` renamed to `get_info_from_str`
 - `genome`=["Grch37"|"Grch38"] argument have to be specified, when initializing the database
@@ -9,9 +9,9 @@
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 99G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 99G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/gnomad_vcf/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
-It extracts from a gnomAD vcf about 23 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_MAF/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
+It extracts from a gnomAD vcf about 23 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_DB/blob/gnomad_vcf/gnomad_db/gnomad_columns.yaml). 
 
 ###### The package works for all currently available gnomAD releases.(January 2022) 
 
