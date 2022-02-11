@@ -86,7 +86,7 @@ from gnomad_db.database import gnomAD_DB
 ```python
 # pass dir
 database_location = "test_dir"
-db = gnomAD_DB(database_location, genome="Grch37")
+db = gnomAD_DB(database_location, genome="Grch38")
 ```
 
 3. Insert some test variants to run the examples below \
