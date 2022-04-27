@@ -12,7 +12,7 @@ variables:
       command: |
         conda env create -f environment.yaml
         source activate gnomad_db
-        python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
+        #python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run. 
