@@ -116,7 +116,7 @@ def test_query_variants_x320_000_rows(database):
     dummy_var_df = dummy_var_df.replace(".", np.NaN)
     
     dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
-    dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
+    #dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
     
     # parallel
     observed = database.get_info_from_df(dummy_var_df, "AF")
