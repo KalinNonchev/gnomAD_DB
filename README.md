@@ -124,7 +124,7 @@ db.get_info_from_str("21:9825790:C>T", "AF")
 
 5. You can query also intervals of minor allele frequencies
 ```python
-db.get_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="AF")
+db.get_info_for_interval(chrom=21, interval_start=9825780, interval_end=9825799, query="AF")
 ```
 
 For more information on how to use the package, look into GettingStartedwithGnomAD_DB.ipynb notebook!
