@@ -5,14 +5,14 @@ variables:
   update_conda: &update_conda
     run:
       name: Update conda
-      command: conda update --yes conda
+      command: ls #conda update --yes conda
   create_env: &create_env
     run:
       name: create env
       command: |
         conda env create -f environment.yaml
         source activate gnomad_db
-        #python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
+        python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run. 
