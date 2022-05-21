@@ -1,8 +1,5 @@
 # gnomAD_DB
 
-#### NB: The package is under development and any use cases suggestions/extensions and feedback are welcome.
-Don't forget to give a STAR :star2:
-
 ### NEW version (December 2021)
 - more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml)
 - `get_maf_from_df` renamed to `get_info_from_df`
@@ -131,3 +128,4 @@ db.get_info_for_interval(chrom=21, interval_start=9825780, interval_end=9825799,
 ```
 
 For more information on how to use the package, look into GettingStartedwithGnomAD_DB.ipynb notebook!
+#### NB: The package is under development and any use cases suggestions/extensions and feedback are welcome.
