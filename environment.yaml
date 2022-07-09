@@ -1,7 +1,7 @@
 name: gnomad_db
 
 channels:
-  - anaconda
+#  - anaconda
   - conda-forge
   - bioconda
 
