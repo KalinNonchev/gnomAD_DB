@@ -18,14 +18,14 @@ workflows:
     # Inside the workflow, you define the jobs you want to run. 
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
     jobs:
-      #- build-and-test
+      - build-and-test
       - test_pip_install
 
 
 jobs:
   build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     docker:
-      - image: continuumio/miniconda3:4.7.10
+      - image: continuumio/miniconda3
     steps:
       - checkout
       - *update_conda
