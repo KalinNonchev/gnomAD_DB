@@ -17,12 +17,12 @@ Grch37:
     - AC_popmax # Allele count in the population with the maximum AF
     - AN_popmax # Total number of alleles in the population with the maximum AF
     - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
-    - AF_eas
-    - AF_oth
-    - AF_nfe
-    - AF_fin
-    - AF_afr
-    - AF_asj
+    - AF_eas # Alternate allele frequency in samples of East Asian ancestry
+    - AF_oth # Alternate allele frequency in XY samples of Other ancestry
+    - AF_nfe # Alternate allele frequency in XY samples of Non-Finnish European ancestry
+    - AF_fin # Alternate allele frequency in XX samples of Finnish ancestry
+    - AF_afr # Alternate allele frequency in samples of African/African-American ancestry
+    - AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry
 Grch38:
     - AC # Alternate allele count for samples
     - AN # Total number of alleles in samples
@@ -38,9 +38,9 @@ Grch38:
     - AC_popmax # Allele count in the population with the maximum AF
     - AN_popmax # Total number of alleles in the population with the maximum AF
     - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
-    - AF_eas
-    - AF_oth
-    - AF_nfe
-    - AF_fin
-    - AF_afr
-    - AF_asj
+    - AF_eas # Alternate allele frequency in samples of East Asian ancestry
+#    - AF_oth # Alternate allele frequency in XY samples of Other ancestry # not supported anymore 9.07.22
+    - AF_nfe # Alternate allele frequency in XY samples of Non-Finnish European ancestry
+    - AF_fin # Alternate allele frequency in XX samples of Finnish ancestry
+    - AF_afr # Alternate allele frequency in samples of African/African-American ancestry
+    - AF_asj # Alternate allele frequency in samples of Ashkenazi Jewish ancestry

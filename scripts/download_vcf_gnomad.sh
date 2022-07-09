@@ -1,4 +1,4 @@
-### gnomAD v3.1.2 download VCF in parallel
+### gnomAD v3.1.2 download VCF in parallel; total 2.3T
 # chr 1
 wget -c https://storage.googleapis.com/gcp-public-data--gnomad/release/3.1.2/vcf/genomes/gnomad.genomes.v3.1.2.sites.chr1.vcf.bgz &
 # chr 2
