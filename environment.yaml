@@ -5,8 +5,9 @@ channels:
   - bioconda
 
 dependencies:
-  - python>=3.9
+  - python>=3.6
   - pip
+  - datrie
   - numpy>=1.19
   - pandas>=1.1.4
   - pyyaml
