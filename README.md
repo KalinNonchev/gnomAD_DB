@@ -1,6 +1,12 @@
 # gnomAD_DB
 
-### NEW version (December 2021)
+### Changelog
+
+#### NEW version (July 2022)
+- release gnomAD WGS v3.1.2
+- minor bug fixes
+
+#### version (December 2021)
 - more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml)
 - `get_maf_from_df` renamed to `get_info_from_df`
 - `get_maf_from_str` renamed to `get_info_from_str`
@@ -9,24 +15,24 @@
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 99G for WGS v3.1.1 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 98G for WGS v3.1.2 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
 It extracts from a gnomAD vcf about 23 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml). 
 
-###### The package works for all currently available gnomAD releases.(January 2022) 
+###### The package works for all currently available gnomAD releases.(July 2022) 
 
 ## 1. Download SQLite preprocessed files
 
-I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.1 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
+I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.2 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-gnomAD v3.1.1 (hg38, **759'302'267** variants) 46.9G zipped, 99G in total - https://zenodo.org/record/5758663/files/gnomad_db_v3.1.1.sqlite3.gz?download=1 \
+gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1 \
 gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
 
 You can download it as:
 
 ```python
 from gnomad_db.database import gnomAD_DB
-download_link = "https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1"
+download_link = "https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1"
 output_dir = "test_dir" # database_location
 gnomAD_DB.download_and_unzip(download_link, output_dir)
 ```
@@ -35,35 +41,6 @@ gnomAD_DB.download_and_unzip(download_link, output_dir)
 
 or you can create the database by yourself. **However, I recommend to use the preprocessed files to save ressources and time**. If you do so, you can go to **2. API usage** and explore the package and its great features!
 
-## 1.1 Data preprocessing and SQL database creation
-
-Start by downloading the vcf files from gnomAD in a single directory:
-
-```bash
-wget -c link_to_gnomAD.vcf.bgz
-```
-
-After that specify the arguments in the ```script_config.yaml```.
-```
-database_location: "test_out" # where to create the database, make sure you have space on your device.
-gnomad_vcf_location: "data" # where are your *.vcf.bgz located
-tables_location: "test_out" # where to store the preprocessed intermediate files, you can leave it like this 
-script_locations: "test_out" # where to store the scripts, where you can check the progress of your jobs, you can leave it like this
-genome: "Grch37" # genome version of the gnomAD vcf file (2.1.1 = Grch37, 3.1.1 = Grch38)
-```
-
-Once this is done, run
-```bash
-conda env create -f environment.yaml
-conda activate gnomad_db
-python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
-```
-to prepare your conda environment
-
-Finally, you can trigger the snakemake pipeline which will create the SQL database
-```bash
-snakemake --cores 12
-```
 
 ## 2. API usage
 
@@ -82,7 +59,8 @@ import pandas as pd
 from gnomad_db.database import gnomAD_DB
 ```
 
-2. Initialize database connection
+2. Initialize database connection \
+**Make sure to have the correct genome version!**
 ```python
 # pass dir
 database_location = "test_dir"
