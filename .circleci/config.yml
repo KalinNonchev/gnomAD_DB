@@ -28,7 +28,7 @@ jobs:
       - image: continuumio/miniconda3
     steps:
       - checkout
-      #- *update_conda
+      - *update_conda
       - *create_env
       - run:
           name: Run tests
