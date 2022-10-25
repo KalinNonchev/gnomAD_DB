@@ -8,7 +8,7 @@ setup(name='gnomad_db',
       license='MIT License',
       long_description_content_type='text/markdown',
       long_description=open('README.md').read(),
-      url="https://github.com/KalinNonchev/gnomAD_MAF",
+      url="https://github.com/KalinNonchev/gnomAD_DB",
       packages=find_packages(),  # find packages
       package_data={
           "gnomad_db": ["pkgdata/*"],   # include pkgdata into package
