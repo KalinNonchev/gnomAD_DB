@@ -1,3 +1,4 @@
+[![Downloads](https://static.pepy.tech/badge/gnomad-db)](https://pepy.tech/project/gnomad-db)
 # gnomAD_DB
 
 ### Changelog
