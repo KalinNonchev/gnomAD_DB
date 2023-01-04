@@ -18,7 +18,7 @@ workflows:
     # Inside the workflow, you define the jobs you want to run. 
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
     jobs:
-#      - build-and-test
+      - build-and-test
       - test_pip_install
 
 
@@ -40,7 +40,7 @@ jobs:
             python setup.py install
   test_pip_install:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.7
     steps:
       - checkout
       - run:
