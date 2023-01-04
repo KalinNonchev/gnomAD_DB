@@ -1,4 +1,5 @@
-[![Downloads](https://static.pepy.tech/badge/gnomad-db)](https://pepy.tech/project/gnomad-db)
+[![KalinNonchev](https://circleci.com/gh/KalinNonchev/gnomAD_DB.svg?style=shield)](https://app.circleci.com/insights/github/KalinNonchev/gnomAD_DB?reporting-window=last-24-hours) [![Downloads](https://static.pepy.tech/badge/gnomad-db)](https://pepy.tech/project/gnomad-db)
+
 # gnomAD_DB
 
 ### Changelog
