@@ -18,7 +18,7 @@ dependencies:
   
   - pip:
       - snakemake
-      - pysqlite3
+#      - pysqlite3
       - joblib
       - pytest
       - nbformat>=5.1
