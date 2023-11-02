@@ -8,13 +8,13 @@ from . import utils
 import yaml
 import pkg_resources 
 
+
 class gnomAD_DB:
     
-    def __init__(self, genodb_path, genome="Grch38", parallel=False, cpu_count=None):
+    def __init__(self, genodb_path, gnomad_version, parallel=False, cpu_count=None):
         
         
         self.parallel = parallel
-        self.genome = genome
         
         if self.parallel:
             self.cpu_count = cpu_count if isinstance(cpu_count, int) else int(multiprocessing.cpu_count())
@@ -26,7 +26,10 @@ class gnomAD_DB:
         with open(columns_path) as f:
             columns = yaml.load(f, Loader=yaml.FullLoader)
         
-        self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns[self.genome]
+        
+        self.gnomad_version = self._parse_gnomad_version(gnomad_version, list(columns.keys())[1:])
+        
+        self.columns = list(map(lambda x: x.lower(), columns["base_columns"])) + columns[self.gnomad_version]
         self.dict_columns = columns
         
         if not os.path.exists(self.db_file):
@@ -41,7 +44,7 @@ class gnomAD_DB:
     
     
     def create_table(self):
-        value_columns = ",".join([f"{col} REAL" for col in self.dict_columns[self.genome]])
+        value_columns = ",".join([f"{col} REAL" for col in self.dict_columns[self.gnomad_version]])
         sql_create = f"""
         CREATE TABLE gnomad_db (
             chrom TEXT,
@@ -171,6 +174,12 @@ class gnomAD_DB:
         ref = var[2].split(">")[0]
         alt = var[2].split(">")[1]
         return chrom, pos, ref, alt
+    
+    def _parse_gnomad_version(self, gnomad_version: str, supported_gnomad_versions: list) -> str:
+        gnomad_version = str(gnomad_version)
+        gnomad_version = gnomad_version.split(".")[-1]
+        assert gnomad_version in supported_gnomad_versions, f"We don't support this version: {gnomad_version}. Please select one fo the following ones: {supported_gnomad_versions}"
+        return gnomad_version
         
     
     def query_direct(self, sql_query: str):
