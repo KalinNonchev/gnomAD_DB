@@ -5,7 +5,7 @@
 ### Changelog
 
 #### version (November 2023)
- - release gnomAD WGS v3.1.2
+ - release gnomAD WGS v4.0 and WES v4.0
  - `gnomad_version`=["v2"|"v3"|"v4"] argument has to be specified when initializing the database
 
 #### version (July 2022)
