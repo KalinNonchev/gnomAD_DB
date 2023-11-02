@@ -12,7 +12,7 @@ database_location: "test_out" # where to create the database, make sure you have
 gnomad_vcf_location: "data" # where are your *.vcf.bgz located
 tables_location: "test_out" # where to store the preprocessed intermediate files, you can leave it like this 
 script_locations: "test_out" # where to store the scripts, where you can check the progress of your jobs, you can leave it like this
-genome: "Grch37" # genome version of the gnomAD vcf file (2.1.1 = Grch37, 3.1.1 = Grch38)
+gnomad_version: "v4" # genome version of the gnomAD vcf file (e.g., v2, v3, v4)
 ```
 
 Once this is done, run
