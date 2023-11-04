@@ -2,5 +2,5 @@ database_location: "test_out" # where to create the database, make sure you have
 gnomad_vcf_location: "data" # where are your *.vcf.bgz located
 tables_location: "test_out" # where to store the preprocessed intermediate files, you can leave it like this 
 script_locations: "test_out" # where to store the scripts, where you can check the progress of your jobs, you can leave it like this
-gnomad_version: "v4" # main gnomad_version version of the gnomAD vcf file (e.g., v2, v3, v4)
+gnomad_version: "v3" # main gnomad_version version of the gnomAD vcf file (e.g., v2, v3, v4)
 KERNEL: "gnomad_db"
