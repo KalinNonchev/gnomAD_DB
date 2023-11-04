@@ -2,9 +2,14 @@
 
 # gnomAD_DB
 
-### Changelog
+#### Changelog
 
-#### NEW version (July 2022)
+#### NEW version (November 2023)
+ - release gnomAD WGS v4.0 and WES v4.0
+ - `gnomad_version`=["v2"|"v3"|"v4"] argument has to be specified when initializing the database
+ - minor fixes
+
+#### version (July 2022)
 - release gnomAD WGS v3.1.2
 - minor bug fixes
 
@@ -12,23 +17,26 @@
 - more available variant features present, check [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml)
 - `get_maf_from_df` renamed to `get_info_from_df`
 - `get_maf_from_str` renamed to `get_info_from_str`
-- `genome`=["Grch37"|"Grch38"] argument have to be specified, when initializing the database
+- [DEPRECATED 11.2023]`genome`=["Grch37"|"Grch38"] argument has to be specified when initializing the database
 
+## Why and What
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
 This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 98G for WGS v3.1.2 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
-It extracts from a gnomAD vcf about 23 variant annotations. You can find further infromation about the exact fields [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml). 
+It extracts from a gnomAD vcf about 23 variant annotations. You can find further information about the exact fields [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml). 
 
 ###### The package works for all currently available gnomAD releases.(July 2022) 
 
 ## 1. Download SQLite preprocessed files
 
-I have preprocessed and created sqlite3 files for gnomAD v2.1.1 and 3.1.2 for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
+I have preprocessed and created sqlite3 files for gnomAD for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1 \
-gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
+- WGS gnomAD v4.0 (hg38, **759'302'267** variants) 36.1G zipped, 74G in total - https://zenodo.org/records/10066323/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
+- WES gnomAD v4.0 (hg38, **161'417'006** variants) 7.3G zipped, 17G in total - https://zenodo.org/records/10066310/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
+- WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1
+- WGS gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
 
 You can download it as:
 
@@ -41,7 +49,7 @@ gnomAD_DB.download_and_unzip(download_link, output_dir)
 #### NB this would take ~30min (network speed 10mb/s)
 
 
-or you can create the database by yourself. **However, I recommend to use the preprocessed files to save ressources and time**. If you do so, you can go to **2. API usage** and explore the package and its great features!
+or you can create the database by yourself. **However, I recommend using the preprocessed files to save resources and time**. If you do so, you can go to **2. API usage** and explore the package and its great features!
 
 
 ## 2. API usage
@@ -62,11 +70,11 @@ from gnomad_db.database import gnomAD_DB
 ```
 
 2. Initialize database connection \
-**Make sure to have the correct genome version!**
+**Make sure to have the correct gnomad version!**
 ```python
 # pass dir
 database_location = "test_dir"
-db = gnomAD_DB(database_location, genome="Grch38")
+db = gnomAD_DB(database_location, gnomad_version="v3")
 ```
 
 3. Insert some test variants to run the examples below \

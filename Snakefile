@@ -14,7 +14,7 @@ database_location = config['database_location']
 gnomad_vcf_location = config['gnomad_vcf_location']
 tables_location = config['tables_location']
 script_locations = config['script_locations']
-genome = config['genome']
+gnomad_version = config['gnomad_version']
 KERNEL = config['KERNEL']
 
 
@@ -32,7 +32,7 @@ rule extract_tables:
     message:
         "Running createTSVtables notebook..."
     shell:
-        "papermill {input.notebook} {output.notebook} -p gnomad_vcf_location {gnomad_vcf_location} -p tables_location {tables_location} -p genome {genome} -k {KERNEL}"
+        "papermill {input.notebook} {output.notebook} -p gnomad_vcf_location {gnomad_vcf_location} -p tables_location {tables_location} -p gnomad_version {gnomad_version} -k {KERNEL}"
 
 
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
@@ -45,7 +45,7 @@ rule insert_variants:
     message:
         "Running insertVariants notebook..."
     shell:
-        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -p tables_location {tables_location} -p genome {genome} -k {KERNEL}"
+        "papermill {input.notebook} {output.notebook} -p database_location {database_location} -p tables_location {tables_location} -p gnomad_version {gnomad_version} -k {KERNEL}"
 
 # -------------------------- INSSERT VARIANTS WITH MAF TO DATABASE ------------------------------
 #rule create_GettingStartedNB:
