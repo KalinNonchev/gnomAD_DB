@@ -2,11 +2,12 @@
 
 # gnomAD_DB
 
-### Changelog
+#### Changelog
 
-#### version (November 2023)
+#### NEW version (November 2023)
  - release gnomAD WGS v4.0 and WES v4.0
  - `gnomad_version`=["v2"|"v3"|"v4"] argument has to be specified when initializing the database
+ - minor fixes
 
 #### version (July 2022)
 - release gnomAD WGS v3.1.2
@@ -18,6 +19,7 @@
 - `get_maf_from_str` renamed to `get_info_from_str`
 - [DEPRECATED 11.2023]`genome`=["Grch37"|"Grch38"] argument has to be specified when initializing the database
 
+## Why and What
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
@@ -31,10 +33,10 @@ It extracts from a gnomAD vcf about 23 variant annotations. You can find further
 
 I have preprocessed and created sqlite3 files for gnomAD for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-- WGS gnomAD v4.0 ()
+- WGS gnomAD v4.0 (hg38, **759'302'267** variants) 36.1G zipped, 74G in total - https://zenodo.org/records/10066323/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
 - WES gnomAD v4.0 (hg38, **161'417'006** variants) 7.3G zipped, 17G in total - https://zenodo.org/records/10066310/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
-- WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1 \
-- WGS gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1 \
+- WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1
+- WGS gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
 
 You can download it as:
 
