@@ -33,7 +33,7 @@ It extracts from a gnomAD vcf about 23 variant annotations. You can find further
 
 I have preprocessed and created sqlite3 files for gnomAD for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-- WGS gnomAD v4.0 (hg38, **759'302'267** variants) 36.1G zipped, 74G in total - https://zenodo.org/records/10066323/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
+- WGS gnomAD v4.0 (hg38, **618'765'636** variants) 36.1G zipped, 74G in total - https://zenodo.org/records/10066323/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
 - WES gnomAD v4.0 (hg38, **161'417'006** variants) 7.3G zipped, 17G in total - https://zenodo.org/records/10066310/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
 - WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1
 - WGS gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
