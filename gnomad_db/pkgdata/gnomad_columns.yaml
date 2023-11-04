@@ -27,16 +27,17 @@ v3:
     - AC # Alternate allele count for samples
     - AN # Total number of alleles in samples
     - AF # Alternate allele frequency in samples
-    - InbreedingCoeff # Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation
+    - rf_tp_probability # Random forest prediction probability for a site being a true variant
     - MQ # Root mean square of the mapping quality of reads across all samples
     - QD # Variant call confidence normalized by depth of sample reads supporting a variant
     - ReadPosRankSum # Z-score from Wilcoxon rank sum test of alternate vs. reference read position bias
-    - VarDP
-    - AS_VQSLOD
+    - DP # Depth of informative coverage for each sample; reads with MQ=255 or with bad mates are filtered
+    - VQSLOD # Log-odds ratio of being a true variant versus being a false positive under the trained VQSR Gaussian mixture model
     - AC_popmax # Allele count in the population with the maximum AF
     - AN_popmax # Total number of alleles in the population with the maximum AF
     - AF_popmax # Maximum allele frequency across populations (excluding samples of Ashkenazi
     - AF_eas # Alternate allele frequency in samples of East Asian ancestry
+    - AF_oth # Alternate allele frequency in XY samples of Other ancestry
     - AF_nfe # Alternate allele frequency in XY samples of Non-Finnish European ancestry
     - AF_fin # Alternate allele frequency in XX samples of Finnish ancestry
     - AF_afr # Alternate allele frequency in samples of African/African-American ancestry
