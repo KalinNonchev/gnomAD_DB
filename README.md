@@ -23,7 +23,7 @@
 
 [The Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
-This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of 34G for WGS v2.1.1 (261.942.336 variants) and 98G for WGS v3.1.2 (about 759.302.267 variants), and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
+This package scales the huge gnomAD files (on average ~120G/chrom) to a SQLite database with a size of <100G  and allows scientists to look for various variant annotations present in gnomAD (i.e. Allele Count, Depth, Minor Allele Frequency, etc. - [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml) you can find all selected features given the genome version). (A query containing 300.000 variants takes ~40s.)
 
 It extracts from a gnomAD vcf about 23 variant annotations. You can find further information about the exact fields [here](https://github.com/KalinNonchev/gnomAD_DB/blob/master/gnomad_db/pkgdata/gnomad_columns.yaml). 
 
@@ -33,8 +33,8 @@ It extracts from a gnomAD vcf about 23 variant annotations. You can find further
 
 I have preprocessed and created sqlite3 files for gnomAD for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
-- WGS gnomAD v4.0 (hg38, **618'765'636** variants) 36.1G zipped, 74G in total - https://zenodo.org/records/10066323/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
-- WES gnomAD v4.0 (hg38, **161'417'006** variants) 7.3G zipped, 17G in total - https://zenodo.org/records/10066310/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
+- WGS gnomAD v4.0 (hg38, **759'336'320** variants) 44.3G zipped, 91G in total - https://zenodo.org/records/10453271/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
+- WES gnomAD v4.0 (hg38, **183'558'769** variants) 8.3G zipped, 19G in total - https://zenodo.org/records/10455901/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
 - WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1
 - WGS gnomAD v2.1.1 (hg19, **261'942'336** variants) 16.1G zipped, 48G in total - https://zenodo.org/record/5770384/files/gnomad_db_v2.1.1.sqlite3.gz?download=1
 
