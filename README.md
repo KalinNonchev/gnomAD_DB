@@ -4,7 +4,11 @@
 
 #### Changelog
 
-#### NEW version (November 2023)
+#### NEW version (April 2024)
+ - release gnomAD WGS v4.1 and WES v4.1 
+   - More information [here](https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/).
+
+#### version (November 2023)
  - release gnomAD WGS v4.0 and WES v4.0
  - `gnomad_version`=["v2"|"v3"|"v4"] argument has to be specified when initializing the database
  - minor fixes
@@ -33,6 +37,8 @@ It extracts from a gnomAD vcf about 23 variant annotations. You can find further
 
 I have preprocessed and created sqlite3 files for gnomAD for you, which can be easily downloaded from here. They contain all variants on the 24 standard chromosomes.
 
+- WGS gnomAD v4.1 (hg38, **759'336'320** variants) 44.3G zipped, 91G in total - https://zenodo.org/records/11077663/files/gnomad_db.sqlite3.gz?download=1
+- WES gnomAD v4.1 (hg38, **183'558'769** variants) 8.3G zipped, 19G in total - https://zenodo.org/records/11076395/files/gnomad_db.sqlite3.gz?download=1
 - WGS gnomAD v4.0 (hg38, **759'336'320** variants) 44.3G zipped, 91G in total - https://zenodo.org/records/10453271/files/gnomad_db_wgs_v4.0.sqlite3.gz?download=1
 - WES gnomAD v4.0 (hg38, **183'558'769** variants) 8.3G zipped, 19G in total - https://zenodo.org/records/10455901/files/gnomad_db_wes_v4.0.sqlite3.gz?download=1
 - WGS gnomAD v3.1.2 (hg38, **759'302'267** variants) 46.2G zipped, 98G in total - https://zenodo.org/record/6818606/files/gnomad_db_v3.1.2.sqlite3.gz?download=1
