@@ -122,4 +122,25 @@ db.get_info_for_interval(chrom=21, interval_start=9825780, interval_end=9825799,
 ```
 
 For more information on how to use the package, look into GettingStartedwithGnomAD_DB.ipynb notebook!
+
+## Citation
+
+In case you found our work useful, please consider citing us:
+
+```
+@misc{gnomad_db,
+  author       = {Kalin Nonchev},
+  title        = {gnomAD_DB: Scalable SQLite Database for gnomAD VCF Files},
+  year         = {2021},
+  publisher    = {GitHub},
+  journal      = {GitHub repository},
+  howpublished = {\url{https://github.com/KalinNonchev/gnomAD_DB}},
+  note         = {Accessed: 2025-05-27}
+}
+```
+
+## Contact
+
+In case, you have questions, please get in touch with [Kalin Nonchev](https://bmi.inf.ethz.ch/people/person/kalin-nonchev).
+
 #### NB: The package is under development and any use cases suggestions/extensions and feedback are welcome.
