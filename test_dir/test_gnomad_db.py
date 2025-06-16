@@ -37,13 +37,13 @@ def test_get_info_from_df(database):
                                  'pos': {0: 21, 1: 9825790},
                                  'ref': {0: 'T', 1: 'C'},
                                  'alt': {0: 'G', 1: 'T'},
-                                 'AF': {0: np.NaN, 1: 0.000243902},
-                                 'AF_afr': {0: np.NaN, 1: 0.0},
-                                 'AF_eas': {0: np.NaN, 1: 0.0},
-                                 'AF_fin': {0: np.NaN, 1: 0.000959693},
-                                 'AF_nfe': {0: np.NaN, 1: 0.0},
-                                 'AF_asj': {0: np.NaN, 1: 0.0},
-                                 'AF_oth': {0: np.NaN, 1: 0.0},
+                                 'AF': {0: np.nan, 1: 0.000243902},
+                                 'AF_afr': {0: np.nan, 1: 0.0},
+                                 'AF_eas': {0: np.nan, 1: 0.0},
+                                 'AF_fin': {0: np.nan, 1: 0.000959693},
+                                 'AF_nfe': {0: np.nan, 1: 0.0},
+                                 'AF_asj': {0: np.nan, 1: 0.0},
+                                 'AF_oth': {0: np.nan, 1: 0.0},
                                  'AF_popmax': {0: None, 1: None}
     })
     
@@ -51,7 +51,7 @@ def test_get_info_from_df(database):
 
     assert expected.equals(observed[expected.columns])
     
-    expected = pd.DataFrame({'AF': {0: np.NaN, 1: 0.000243902}})
+    expected = pd.DataFrame({'AF': {0: np.nan, 1: 0.000243902}})
     
     observed = database.get_info_from_df(dummy_var_df, "AF")
     
@@ -96,7 +96,7 @@ def test_get_info_from_str(database):
 def test_insert_variants(database):
     
     dummy_var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
-    dummy_var_df = dummy_var_df.replace(".", np.NaN)
+    dummy_var_df = dummy_var_df.replace(".", np.nan)
     
     database.insert_variants(dummy_var_df)
     
@@ -113,7 +113,7 @@ def test_insert_variants(database):
 def test_query_variants_x320_000_rows(database):
     
     dummy_var_df = pd.read_csv("data/test_vcf_gnomad_chr21_10000.tsv.gz", sep="\t", names=database.columns, index_col=False)
-    dummy_var_df = dummy_var_df.replace(".", np.NaN)
+    dummy_var_df = dummy_var_df.replace(".", np.nan)
     
     dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
     #dummy_var_df = pd.concat([dummy_var_df, dummy_var_df])
@@ -180,7 +180,7 @@ def test_get_interval_from_str(database):
                              'AF_nfe': {0: 0.00145879, 1: 0.00109409, 2: 0.0, 3: 0.0, 4: 0.00126263},
                              'AF_asj': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
                              'AF_oth': {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0},
-                             'AF_popmax': {0: 0.00145879, 1: 0.00109409, 2: np.NaN, 3: np.NaN, 4: 0.00126263}})
+                             'AF_popmax': {0: 0.00145879, 1: 0.00109409, 2: np.nan, 3: np.nan, 4: 0.00126263}})
     
     observed = database.get_info_for_interval(chrom=21, interval_start=9825787, interval_end=9825793, query="*")
     
