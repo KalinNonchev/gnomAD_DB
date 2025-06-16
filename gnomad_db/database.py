@@ -93,7 +93,7 @@ class gnomAD_DB:
             c.executemany(sql_input, rows)
     
     def _sanitize_variants(self, var_df: pd.DataFrame) -> pd.DataFrame:
-        var_df = var_df.replace(".", np.NaN)
+        var_df = var_df.replace(".", np.nan)
         var_df["pos"] = var_df["pos"].astype(int)
         var_df["chrom"] = var_df["chrom"].astype(str)
         var_df["chrom"] = var_df.chrom.apply(lambda x: x.replace("chr", ""))
