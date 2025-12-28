@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='gnomad_db',
-      version='0.1.4',
+      version='0.1.6',
       description='This package scales the huge gnomAD files to a SQLite database, which is easy and fast to query. It extracts from a gnomAD vcf the minor allele frequency for each variant.',
       author='KalinNonchev',
       author_email='boo@foo.com',
@@ -15,5 +15,5 @@ setup(name='gnomad_db',
       },
       include_package_data=True,
       install_requires=['pandas', 'numpy', 'joblib', 'tqdm', 'pyyaml'],  # external packages as dependencies,
-      python_requires='>=3.6'
+      python_requires='>=3.8'
       )
