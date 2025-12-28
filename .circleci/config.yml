@@ -30,11 +30,15 @@ anchors:
 
   create_env: &create_env
     run:
-      name: Create conda environment
+      name: Create conda environment and register kernel
       command: |
         if ! conda env list | grep -q gnomad_db; then
           mamba env create -f environment.yaml
         fi
+        source activate gnomad_db
+        # Ensure ipykernel is installed and register kernel for papermill
+        conda install -y ipykernel
+        python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
         echo "source activate gnomad_db" >> ~/.bashrc
 
 # -------------------------
