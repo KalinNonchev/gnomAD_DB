@@ -40,7 +40,7 @@ jobs:
             python setup.py install
   test_pip_install:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run:
