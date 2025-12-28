@@ -20,11 +20,19 @@ jobs:
     docker:
       - image: condaforge/mambaforge
     steps:
-      # 🔑 Force HTTPS instead of SSH for GitHub App projects
+      # Install git + ssh BEFORE checkout so CircleCI does not use fallback client
+      - run:
+          name: Install git and ssh
+          command: |
+            apt-get update
+            apt-get install -y git openssh-client
+
+      # Force HTTPS instead of SSH for GitHub App projects
       - run:
           name: Force HTTPS GitHub checkout
           command: |
             git config --global url."https://github.com/".insteadOf "git@github.com:"
+
       - checkout
 
       - *create_env
@@ -41,11 +49,12 @@ jobs:
     docker:
       - image: circleci/python:3.9
     steps:
-      # 🔑 Force HTTPS instead of SSH for GitHub App projects
+      # Force HTTPS instead of SSH for GitHub App projects
       - run:
           name: Force HTTPS GitHub checkout
           command: |
             git config --global url."https://github.com/".insteadOf "git@github.com:"
+
       - checkout
 
       - run:
