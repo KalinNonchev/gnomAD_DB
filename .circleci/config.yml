@@ -1,54 +1,97 @@
 version: 2.1
 
-
-variables:
-  update_conda: &update_conda
+# -------------------------
+# Anchors / Reusable steps
+# -------------------------
+anchors:
+  install_git: &install_git
     run:
-      name: Update conda
-      command: conda update --yes conda
+      name: Install git and ssh
+      command: |
+        apt-get update
+        apt-get install -y git openssh-client
+
+  force_https: &force_https
+    run:
+      name: Force HTTPS GitHub checkout
+      command: |
+        git config --global url."https://github.com/".insteadOf "git@github.com:"
+
+  restore_conda_cache: &restore_conda_cache
+    restore_cache:
+      keys:
+        - conda-env-v1-{{ checksum "environment.yaml" }}
+
+  save_conda_cache: &save_conda_cache
+    save_cache:
+      key: conda-env-v1-{{ checksum "environment.yaml" }}
+      paths:
+        - /opt/conda/envs/gnomad_db
+
   create_env: &create_env
     run:
-      name: create env
+      name: Create conda environment
       command: |
-        mamba env create -f environment.yaml
-        source activate gnomad_db
-        python -m ipykernel install --user --name gnomad_db --display-name "gnomad_db"
+        if ! conda env list | grep -q gnomad_db; then
+          mamba env create -f environment.yaml
+        fi
+        echo "source activate gnomad_db" >> ~/.bashrc
+
+# -------------------------
+# Workflows
+# -------------------------
 workflows:
-  sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run. 
-    # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
+  sample:
     jobs:
       - build-and-test
       - test_pip_install
 
-
+# -------------------------
+# Jobs
+# -------------------------
 jobs:
-  build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+  build-and-test:
     docker:
       - image: condaforge/mambaforge
     steps:
+      - *install_git
+      - *force_https
       - checkout
-      #- *update_conda
+
+      - *restore_conda_cache
       - *create_env
+      - *save_conda_cache
+
       - run:
-          name: Run tests
-          # This assumes pytest is installed via the install-package step above
+          name: Run workflow and tests
           command: |
             source activate gnomad_db
             snakemake --cores 1
-            python -m pytest test_dir/
-            python setup.py install
-  test_pip_install:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+            pip install .
+            pytest test_dir/
+
+  test_pip_install:
     docker:
-      - image: circleci/python:3.7
+      - image: cimg/python:3.9
     steps:
+      - *force_https
       - checkout
+
+      - restore_cache:
+          keys:
+            - pip-cache-v1-{{ checksum "requirements.txt" }}
+
       - run:
           name: Test pip installation
-          # This assumes pytest is installed via the install-package step above
           command: |
-            python3 -m venv venv
+            python -m venv venv
             . venv/bin/activate
+            pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            python setup.py install --force
-            python -m pytest test_dir/
+            pip install .
+            pytest test_dir/
+
+      - save_cache:
+          key: pip-cache-v1-{{ checksum "requirements.txt" }}
+          paths:
+            - ~/.cache/pip
