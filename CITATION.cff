@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "gnomAD_DB: Scalable SQLite Database for gnomAD VCF Files"
+message: "If you use gnomAD_DB, please cite it using the metadata from this file."
+type: software
+authors:
+  - given-names: Kalin
+    family-names: Nonchev
+    orcid: https://orcid.org/0009-0001-4904-8772
+repository-code: https://github.com/KalinNonchev/gnomAD_DB
+license: MIT
+version: 0.1.6
+date-released: "2024-04-01"
+keywords:
+  - gnomad
+  - genomics
+  - bioinformatics
+  - variant-annotation
+  - allele-frequency
+  - sqlite
+  - vcf
+  - genome-aggregation-database
+  - population-genetics
+  - minor-allele-frequency
+  - whole-genome-sequencing
+  - exome-sequencing

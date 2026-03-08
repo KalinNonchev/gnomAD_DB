@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "gnomad_db"
+version = "0.1.6"
+description = "Scalable SQLite database for fast querying of gnomAD variant annotations (allele frequency, depth, population metrics)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    {name = "Kalin Nonchev"},
+]
+keywords = [
+    "gnomad",
+    "genomics",
+    "bioinformatics",
+    "variant-annotation",
+    "allele-frequency",
+    "sqlite",
+    "vcf",
+    "population-genetics",
+    "minor-allele-frequency",
+    "whole-genome-sequencing",
+    "exome-sequencing",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.urls]
+Homepage = "https://github.com/KalinNonchev/gnomAD_DB"
+Repository = "https://github.com/KalinNonchev/gnomAD_DB"
+"Bug Tracker" = "https://github.com/KalinNonchev/gnomAD_DB/issues"
+"Pre-built Databases" = "https://zenodo.org/records/11077663"
