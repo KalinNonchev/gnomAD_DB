@@ -1,4 +1,3 @@
-gnomad_db
 pandas
 numpy
 pyyaml
