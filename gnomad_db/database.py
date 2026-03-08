@@ -6,22 +6,22 @@ import multiprocessing
 from joblib import Parallel, delayed
 from . import utils
 import yaml
-import pkg_resources 
+from pathlib import Path
 
 
 class gnomAD_DB:
-    
+
     def __init__(self, genodb_path, gnomad_version, parallel=False, cpu_count=None):
-        
-        
+
+
         self.parallel = parallel
-        
+
         if self.parallel:
             self.cpu_count = cpu_count if isinstance(cpu_count, int) else int(multiprocessing.cpu_count())
 
         self.db_file = os.path.join(genodb_path, 'gnomad_db.sqlite3')
-        
-        columns_path = pkg_resources.resource_filename("gnomad_db", "pkgdata/gnomad_columns.yaml")
+
+        columns_path = Path(__file__).parent / "pkgdata" / "gnomad_columns.yaml"
         
         with open(columns_path) as f:
             columns = yaml.load(f, Loader=yaml.FullLoader)
